@@ -6,7 +6,7 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import { Navigation } from "./components/Navigation";
-// import NavBar from "./compoents/NavBar";
+import "@navikt/ds-css";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
