@@ -30,7 +30,10 @@ const JobList: React.FC<JobListProps> = ({ jobs }) => {
             ) => {
               return (
                 <Table.Row key={i + id}>
-                  <Table.HeaderCell scope="row">{role}</Table.HeaderCell>
+                  <Table.HeaderCell scope="row">
+                    <Link to={`job/${id}`}>{role} </Link>
+                  </Table.HeaderCell>
+
                   <Table.DataCell>{company_name}</Table.DataCell>
                   <Table.DataCell>{employment_type}</Table.DataCell>
                   <Table.DataCell>{location}</Table.DataCell>
