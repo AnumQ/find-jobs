@@ -1,9 +1,9 @@
 import type { MetaFunction } from "@remix-run/node";
-import "@styles/about.css";
+import "@styles/advice.css";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "About | Find Your Next Job" },
+    { title: "Advice for Job Seeker | Find Your Next Job" },
     {
       name: "description",
       content:
@@ -12,10 +12,10 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-export default function About() {
+export default function Advice() {
   return (
-    <div className="about">
-      <h1>About page</h1>
+    <div className="advice">
+      <h1>Advice for job seeker</h1>
       <p>
         Find you next job easily, search fast through jobs posted on linkedln,
         google etc.

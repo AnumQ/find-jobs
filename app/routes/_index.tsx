@@ -1,5 +1,4 @@
 import type { MetaFunction } from "@remix-run/node";
-import { Navgiation } from "../components/Navgiation";
 
 export const meta: MetaFunction = () => {
   return [
