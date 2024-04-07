@@ -1,26 +1,20 @@
 import type { MetaFunction } from "@remix-run/node";
-import { NavLink } from "@remix-run/react";
+import { Navgiation } from "../components/Navgiation";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
+    { title: "Home | Find Your Next Job Easily" },
+    {
+      name: "description",
+      content: "Find job listings fast from google, linkedln etc.",
+    },
   ];
 };
 
 export default function Index() {
   return (
     <div>
-      <nav>
-        <ul>
-          <li>
-            <NavLink to="/">Jobs</NavLink>
-          </li>
-          <li>
-            <NavLink to="/about">About</NavLink>
-          </li>
-        </ul>
-      </nav>
+      <p>Inside HOME</p>
       <h1>Welcome to Remix</h1>
       <ul>
         <li>
