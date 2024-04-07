@@ -1,4 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
+import { NavLink } from "@remix-run/react";
 
 export const meta: MetaFunction = () => {
   return [
@@ -9,7 +10,17 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
+    <div>
+      <nav>
+        <ul>
+          <li>
+            <NavLink to="/">Jobs</NavLink>
+          </li>
+          <li>
+            <NavLink to="/about">About</NavLink>
+          </li>
+        </ul>
+      </nav>
       <h1>Welcome to Remix</h1>
       <ul>
         <li>
