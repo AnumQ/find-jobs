@@ -1,4 +1,8 @@
 import type { MetaFunction } from "@remix-run/node";
+import { LoaderFunction, json } from "@remix-run/node";
+import { fetchJobs } from "~/api";
+import { useLoaderData } from "@remix-run/react";
+import JobList from "~/components/JobList";
 
 export const meta: MetaFunction = () => {
   return [
@@ -10,36 +14,18 @@ export const meta: MetaFunction = () => {
   ];
 };
 
+export const loader: LoaderFunction = async () => {
+  const jobs = await fetchJobs("react");
+  console.log(jobs.length);
+  return json(jobs);
+};
+
 export default function Index() {
+  const jobs = useLoaderData<typeof loader>();
   return (
     <div>
-      <p>Inside HOME</p>
-      <h1>Welcome to Remix</h1>
-      <ul>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/blog"
-            rel="noreferrer"
-          >
-            15m Quickstart Blog Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/jokes"
-            rel="noreferrer"
-          >
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-        </li>
-      </ul>
+      <h1>Welcome to a list of amazing jobs in React</h1>
+      <JobList jobs={jobs} />
     </div>
   );
 }
