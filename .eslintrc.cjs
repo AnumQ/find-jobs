@@ -64,6 +64,10 @@ module.exports = {
           typescript: {
             alwaysTryTypes: true,
           },
+          alias: {
+            map: [["@styles", "./app/styles"]],
+            extensions: [".js", ".jsx", ".ts", ".tsx", ".json"],
+          },
         },
       },
       extends: [
