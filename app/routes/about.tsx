@@ -1,6 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 import { LinksFunction } from "@remix-run/node";
-import styles from "../styles/about.css";
+import styles from "@styles/about.css";
 
 export const meta: MetaFunction = () => {
   return [
