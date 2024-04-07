@@ -16,7 +16,6 @@ export const meta: MetaFunction = () => {
 
 export const loader: LoaderFunction = async () => {
   const jobs = await fetchJobs("react");
-  console.log(jobs.length);
   return json(jobs);
 };
 

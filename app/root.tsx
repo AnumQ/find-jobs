@@ -5,7 +5,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import { Navgiation } from "./components/Navgiation";
+import { Navigation } from "./components/Navigation";
 // import NavBar from "./compoents/NavBar";
 
 export function Layout({ children }: { children: React.ReactNode }) {
@@ -18,7 +18,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        <Navgiation></Navgiation>
+        <Navigation></Navigation>
         {children}
         <ScrollRestoration />
         <Scripts />

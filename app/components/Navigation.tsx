@@ -1,6 +1,6 @@
 import { NavLink } from "@remix-run/react";
 
-export function Navgiation() {
+export function Navigation() {
   return (
     <nav className="navbar">
       <ul>
