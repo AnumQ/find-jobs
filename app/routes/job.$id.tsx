@@ -3,6 +3,10 @@ import { json, redirect } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { fetchJob } from "~/api";
 
+// TODO: 
+// add meta function
+
+
 export const loader = ({ params }: LoaderFunctionArgs) => {
   if (!params || !params.id) {
     return redirect("/404");
