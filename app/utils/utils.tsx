@@ -6,3 +6,11 @@ export function chunkArray<T>(array: T[], chunkSize: number): T[][] {
   }
   return result;
 }
+
+export function getClassNameBasedOnDarkMode(
+  isDarkMode: boolean,
+  className: string
+) {
+  console.log("isDarkmode now: " + isDarkMode);
+  return `${className}${isDarkMode ? " dark" : ""}`;
+}

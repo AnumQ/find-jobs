@@ -1,7 +1,35 @@
 .navbar {
-  background-color: rgb(187, 213, 235);
+  
+  background-color: var(--a-bg-subtle);
+  /* background-color: var(--a-lightblue-50); */
+  border-bottom: 1px solid var(--a-border-subtle);
+  font-size: var(--a-font-size-heading-small);
+  
+  &.dark {
+    background-color: var(--a-surface-inverted);
+    border-bottom : 1px solid var(--a-border-on-inverted-subtle);
+    color: var(--a-text-on-inverted)
 
-  & ul {
-    list-style: none;
   }
-}
+
+  ul {
+    li {
+      padding: var(--a-spacing-3);
+        /* padding: var(--a-spacing-3); */
+    
+    & a {
+      padding: var(--a-spacing-4);
+
+      text-decoration: none;
+      color: var(--a-text-subtle);
+      
+      &.active {
+        color: var(--a-text-default);
+        border-bottom: 2px solid var(--a-blue-500);
+        /* padding: var(--a-spacing-9); */
+      }
+    }
+    }
+  }
+  
+} 

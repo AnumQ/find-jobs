@@ -1,19 +1,22 @@
 // app/components/JobList.tsx
-import React, { useState } from "react";
+import React from "react";
 import { JSearchJob } from "~/types/Job";
 import { Link } from "@remix-run/react";
 import { HStack, Table, VStack, Pagination } from "@navikt/ds-react";
-import { chunkArray } from "../utils/utils";
 import "@styles/joblist.css";
 interface JobListProps {
   jobs: JSearchJob[];
+  pageState: number;
+  setPageState: React.Dispatch<React.SetStateAction<number>>;
+  fetchPageResults: (page: number) => void;
 }
 
-const JobListFindWork: React.FC<JobListProps> = ({ jobs }) => {
-  const paginationChunks = chunkArray(jobs, 10);
-  const [pageState, setPageState] = useState(1);
-  const filteredJobs = paginationChunks[pageState - 1];
-
+const JobList: React.FC<JobListProps> = ({
+  jobs,
+  pageState,
+  setPageState,
+  fetchPageResults,
+}) => {
   return (
     <VStack className="job-list" gap="5">
       <Table className="job-result">
@@ -27,21 +30,28 @@ const JobListFindWork: React.FC<JobListProps> = ({ jobs }) => {
           </Table.Row>
         </Table.Header>
         <Table.Body>
-          {filteredJobs.map(
+          {jobs.map(
             (
-              { id, role, company_name, employment_type, location, source },
+              {
+                job_id,
+                job_title,
+                employer_name,
+                job_employment_type,
+                job_city,
+                job_publisher,
+              },
               i
             ) => {
               return (
-                <Table.Row key={i + id}>
+                <Table.Row key={i + job_id}>
                   <Table.HeaderCell scope="row">
-                    <Link to={`job/${id}`}>{role}</Link>
+                    <Link to={`jobdetail/${job_id}`}>{job_title}</Link>
                   </Table.HeaderCell>
 
-                  <Table.DataCell>{company_name}</Table.DataCell>
-                  <Table.DataCell>{employment_type}</Table.DataCell>
-                  <Table.DataCell>{location}</Table.DataCell>
-                  <Table.DataCell>{source}</Table.DataCell>
+                  <Table.DataCell>{employer_name}</Table.DataCell>
+                  <Table.DataCell>{job_employment_type}</Table.DataCell>
+                  <Table.DataCell>{job_city}</Table.DataCell>
+                  <Table.DataCell>{job_publisher}</Table.DataCell>
                 </Table.Row>
               );
             }
@@ -51,8 +61,11 @@ const JobListFindWork: React.FC<JobListProps> = ({ jobs }) => {
       <HStack justify={"center"}>
         <Pagination
           page={pageState}
-          onPageChange={(x) => setPageState(x)}
-          count={paginationChunks.length}
+          onPageChange={(page) => {
+            setPageState(page);
+            fetchPageResults(page);
+          }}
+          count={10} // hard coded since we don't know the total number of result
           boundaryCount={1}
           siblingCount={1}
         />
@@ -61,4 +74,4 @@ const JobListFindWork: React.FC<JobListProps> = ({ jobs }) => {
   );
 };
 
-export default JobListFindWork;
+export default JobList;

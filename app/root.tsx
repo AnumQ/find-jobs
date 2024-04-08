@@ -51,6 +51,16 @@ export function ErrorBoundary() {
   );
 }
 
+function Footer() {
+  return (
+    <Box background="surface-neutral-moderate" padding="8" as="footer">
+      <Page.Block gutters width="lg">
+        Footer
+      </Page.Block>
+    </Box>
+  );
+}
+
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
@@ -61,19 +71,21 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        <Navigation />
-        {children}
-        <ScrollRestoration />
-        <Scripts />
+        <GlobalContextProvider>
+          <Page footer={<Footer />}>
+            <Page.Block>
+              <Navigation />
+            </Page.Block>
+            <Page.Block gutters>{children}</Page.Block>
+          </Page>
+          <ScrollRestoration />
+          <Scripts />
+        </GlobalContextProvider>
       </body>
     </html>
   );
 }
 
 export default function App() {
-  return (
-    <GlobalContextProvider>
-      <Outlet />
-    </GlobalContextProvider>
-  );
+  return <Outlet />;
 }

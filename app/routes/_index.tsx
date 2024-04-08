@@ -2,8 +2,8 @@ import type { MetaFunction } from "@remix-run/node";
 import { LoaderFunction, json } from "@remix-run/node";
 import { fetchJobs } from "~/api/jsearch";
 import { useLoaderData } from "@remix-run/react";
-import { HStack, Heading, Loader, Switch } from "@navikt/ds-react";
-import JobListJSearch from "~/components/JobListJSearch";
+import { HStack, Heading, Loader, Switch, Box, Page } from "@navikt/ds-react";
+import JobList from "~/components/UI/JobList";
 import { useState } from "react";
 import { JSearchJob } from "~/types/Job";
 import { useGlobalContext } from "~/contexts/GlobalContext";
@@ -49,12 +49,8 @@ const JSearchView = ({ jobs }: { jobs: JSearchJob[] }) => {
         <Loader />
       ) : (
         <>
-          <HStack
-            justify={"space-between"}
-            // style={{ backgroundColor: "red" }}
-            align={"center"}
-          >
-            <Heading
+          <HStack justify={"space-between"} align={"center"}>
+            {/* <Heading
               // style={{ backgroundColor: "blue", height: "100%" }}
               level="1"
               size="medium"
@@ -62,16 +58,12 @@ const JSearchView = ({ jobs }: { jobs: JSearchJob[] }) => {
               className="title"
             >
               Welcome to a list of amazing jobs
-            </Heading>
-            <Switch
-              style={{ backgroundColor: "green", height: "100%" }}
-              checked={isLiveMode}
-              onChange={toggleLiveMode}
-            >
+            </Heading> */}
+            <Switch checked={isLiveMode} onChange={toggleLiveMode}>
               Use live data
             </Switch>
           </HStack>
-          <JobListJSearch
+          <JobList
             jobs={pageResults}
             pageState={pageState}
             setPageState={setPageState}

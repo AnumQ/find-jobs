@@ -30,7 +30,7 @@ export default function About() {
             JSearch API
           </a>{" "}
         </span>
-        to fetch the latest job postings across multiple platforms. 
+        to search for the latest job postings across multiple platforms.
       </BodyShort>
     </div>
   );
