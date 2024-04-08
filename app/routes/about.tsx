@@ -1,5 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 import "@styles/about.css";
+import { BodyShort, Box, Heading, Link, List, Page } from "@navikt/ds-react";
 
 export const meta: MetaFunction = () => {
   return [
@@ -15,19 +16,22 @@ export const meta: MetaFunction = () => {
 export default function About() {
   return (
     <div className="about">
-      <h1>About page</h1>
-      <p>
+      <Heading level="1" size="medium">
+        About page
+      </Heading>
+      <BodyShort>
         Find you next job easily, search fast through jobs posted on linkedln,
         google etc.
-      </p>
-      <p>
-        This page leverages the
+      </BodyShort>
+      <BodyShort>
+        This app leverages the{" "}
         <span>
           <a href="https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch">
-            JSearch
+            JSearch API
           </a>{" "}
         </span>
-      </p>
+        to fetch the latest job postings across multiple platforms. 
+      </BodyShort>
     </div>
   );
 }

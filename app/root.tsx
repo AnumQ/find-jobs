@@ -8,23 +8,46 @@ import {
 } from "@remix-run/react";
 import { Navigation } from "./components/Navigation";
 import "@navikt/ds-css";
+import { BodyShort, Box, Heading, Link, List, Page } from "@navikt/ds-react";
+import { GlobalContextProvider } from "./contexts/GlobalContext";
+import "@styles/_reset.css";
 
 // Error boundary component
 export function ErrorBoundary() {
   const error = useRouteError();
   console.error(error);
+  let errorString = "unknown";
+  if (error && (error as Error) && (error as Error).message) {
+    errorString = (error as Error).message;
+  }
   return (
-    <html lang="en">
-      <head>
-        <title>Oh no!</title>
-        <Meta />
-        <Links />
-      </head>
-      <body>
-        <p>Something went wrong. The page you are looking for does not exist.</p>
-        <Scripts />
-      </body>
-    </html>
+    <Page data-aksel-template="404-v2">
+      <Page.Block as="main" width="xl" gutters>
+        <Box paddingBlock="20 16">
+          <div>
+            <Heading level="1" size="large" spacing>
+              Sorry, page not found
+            </Heading>
+            <BodyShort>
+              This page has either been moved, does not exist or there is
+              something wrong with the url.
+            </BodyShort>
+            <BodyShort>
+              Details about the problem: <span>{errorString}</span>
+            </BodyShort>
+            <BodyShort>Here are potential solutions:</BodyShort>
+            <List>
+              <List.Item>
+                <Link href="/">Go back to the main page</Link>
+              </List.Item>
+              <List.Item>
+                <Link href="/faq">Go to frequently asked questions</Link>
+              </List.Item>
+            </List>
+          </div>
+        </Box>
+      </Page.Block>
+    </Page>
   );
 }
 
@@ -38,7 +61,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        <Navigation></Navigation>
+        <Navigation />
         {children}
         <ScrollRestoration />
         <Scripts />
@@ -48,5 +71,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <GlobalContextProvider>
+      <Outlet />
+    </GlobalContextProvider>
+  );
 }

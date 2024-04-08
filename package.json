@@ -11,6 +11,7 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@navikt/aksel-icons": "^6.3.6",
     "@navikt/ds-css": "^6.3.6",
     "@navikt/ds-react": "^6.3.6",
     "@remix-run/node": "^2.8.1",

@@ -1,18 +1,22 @@
 // app/components/JobList.tsx
-import React from "react";
-import { Job } from "~/types/Job";
+import React, { useState } from "react";
+import { JSearchJob } from "~/types/Job";
 import { Link } from "@remix-run/react";
-import { Table } from "@navikt/ds-react";
-
+import { HStack, Table, VStack, Pagination } from "@navikt/ds-react";
+import { chunkArray } from "../utils/utils";
+import "@styles/joblist.css";
 interface JobListProps {
-  jobs: Job[];
+  jobs: JSearchJob[];
 }
 
-const JobList: React.FC<JobListProps> = ({ jobs }) => {
+const JobListFindWork: React.FC<JobListProps> = ({ jobs }) => {
+  const paginationChunks = chunkArray(jobs, 10);
+  const [pageState, setPageState] = useState(1);
+  const filteredJobs = paginationChunks[pageState - 1];
+
   return (
-    <div className="job-list">
-      <h3>Job results</h3>
-      <Table>
+    <VStack className="job-list" gap="5">
+      <Table className="job-result">
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell scope="col">Role</Table.HeaderCell>
@@ -23,7 +27,7 @@ const JobList: React.FC<JobListProps> = ({ jobs }) => {
           </Table.Row>
         </Table.Header>
         <Table.Body>
-          {jobs.map(
+          {filteredJobs.map(
             (
               { id, role, company_name, employment_type, location, source },
               i
@@ -44,8 +48,17 @@ const JobList: React.FC<JobListProps> = ({ jobs }) => {
           )}
         </Table.Body>
       </Table>
-    </div>
+      <HStack justify={"center"}>
+        <Pagination
+          page={pageState}
+          onPageChange={(x) => setPageState(x)}
+          count={paginationChunks.length}
+          boundaryCount={1}
+          siblingCount={1}
+        />
+      </HStack>
+    </VStack>
   );
 };
 
-export default JobList;
+export default JobListFindWork;
