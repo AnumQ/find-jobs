@@ -2,9 +2,10 @@
 import React from "react";
 import { JSearchJob } from "~/types/Job";
 import { Link } from "@remix-run/react";
-import { HStack, Table, VStack, Pagination } from "@navikt/ds-react";
+import { HStack, Table, VStack, Pagination, Skeleton } from "@navikt/ds-react";
 import "@styles/joblist.css";
 interface JobListProps {
+  isLoading: boolean;
   jobs: JSearchJob[];
   pageState: number;
   setPageState: React.Dispatch<React.SetStateAction<number>>;
@@ -60,6 +61,7 @@ const JobList: React.FC<JobListProps> = ({
       </Table>
       <HStack justify={"center"}>
         <Pagination
+          size="small"
           page={pageState}
           onPageChange={(page) => {
             setPageState(page);

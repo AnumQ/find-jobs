@@ -2,7 +2,7 @@ import type { MetaFunction } from "@remix-run/node";
 import { LoaderFunction, json } from "@remix-run/node";
 import { fetchJobs } from "~/api/jsearch";
 import { useLoaderData } from "@remix-run/react";
-import { HStack, Heading, Loader, Switch, Box, Page } from "@navikt/ds-react";
+import { HStack, Switch, VStack, Skeleton } from "@navikt/ds-react";
 import JobList from "~/components/UI/JobList";
 import { useState } from "react";
 import { JSearchJob } from "~/types/Job";
@@ -25,6 +25,27 @@ export const loader: LoaderFunction = async () => {
   return json(jobs);
 };
 
+const SkeletonView = () => {
+  return (
+    <VStack gap="2" className="w-100">
+      <Skeleton variant="rectangle" width="100%" height={30} />
+      <Skeleton variant="rectangle" width="100%" height={30} />
+      <Skeleton variant="rectangle" width="100%" height={30} />
+      <Skeleton variant="rectangle" width="100%" height={30} />
+      <Skeleton variant="rectangle" width="100%" height={30} />
+      <Skeleton variant="rectangle" width="100%" height={30} />
+      <Skeleton variant="rectangle" width="100%" height={30} />
+      <Skeleton variant="rectangle" width="100%" height={30} />
+      <Skeleton variant="rectangle" width="100%" height={30} />
+      <Skeleton variant="rectangle" width="100%" height={30} />
+      <Skeleton variant="rectangle" width="100%" height={30} />
+      <Skeleton variant="rectangle" width="100%" height={30} />
+      <Skeleton variant="rectangle" width="100%" height={30} />
+      <Skeleton variant="rectangle" width="100%" height={30} />
+    </VStack>
+  );
+};
+
 const JSearchView = ({ jobs }: { jobs: JSearchJob[] }) => {
   const [pageResults, setPageResults] = useState<JSearchJob[]>(jobs);
   const [pageState, setPageState] = useState(1); // initial page state
@@ -45,12 +66,8 @@ const JSearchView = ({ jobs }: { jobs: JSearchJob[] }) => {
 
   return (
     <>
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <>
-          <HStack justify={"space-between"} align={"center"}>
-            {/* <Heading
+      <HStack justify={"space-between"} align={"center"}>
+        {/* <Heading
               // style={{ backgroundColor: "blue", height: "100%" }}
               level="1"
               size="medium"
@@ -59,17 +76,20 @@ const JSearchView = ({ jobs }: { jobs: JSearchJob[] }) => {
             >
               Welcome to a list of amazing jobs
             </Heading> */}
-            <Switch checked={isLiveMode} onChange={toggleLiveMode}>
-              Use live data
-            </Switch>
-          </HStack>
-          <JobList
-            jobs={pageResults}
-            pageState={pageState}
-            setPageState={setPageState}
-            fetchPageResults={fetchPageResults}
-          />
-        </>
+        <Switch checked={isLiveMode} onChange={toggleLiveMode}>
+          Use live data
+        </Switch>
+      </HStack>
+      {isLoading ? (
+        <SkeletonView />
+      ) : (
+        <JobList
+          isLoading={isLoading}
+          jobs={pageResults}
+          pageState={pageState}
+          setPageState={setPageState}
+          fetchPageResults={fetchPageResults}
+        />
       )}
     </>
   );
