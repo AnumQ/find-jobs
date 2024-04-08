@@ -18,12 +18,15 @@ const fetchJobsLive = async (query: string) => {
   const apiUrl = `${BASE_URL}/search`;
 
   try {
-    const response = await fetch(`${apiUrl}?search=${query}`, {
-      method: "GET",
-      headers: {
-        Authorization: `Token ${apiKey}`,
-      },
-    });
+    const response = await fetch(
+      `${apiUrl}?search=${query}&sort_by=relevance`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Token ${apiKey}`,
+        },
+      }
+    );
 
     if (!response.ok) {
       throw new Error("Failed to fetch jobs");

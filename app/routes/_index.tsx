@@ -21,6 +21,11 @@ export const loader: LoaderFunction = async () => {
 
 export default function Index() {
   const jobs = useLoaderData<typeof loader>();
+
+  // Check if jobs data is not loaded yet, show skeleton UI in that case
+  if (!jobs) {
+    return <div>loading ...</div>;
+  }
   return (
     <div>
       <h1>Welcome to a list of amazing jobs in React</h1>

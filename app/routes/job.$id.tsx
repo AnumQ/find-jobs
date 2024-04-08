@@ -1,19 +1,20 @@
 import type { LoaderFunctionArgs } from "@remix-run/node";
-import { json, redirect } from "@remix-run/node";
+import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { fetchJob } from "~/api";
 
-// TODO: 
+// TODO:
 // add meta function
-
 
 export const loader = ({ params }: LoaderFunctionArgs) => {
   if (!params || !params.id) {
-    return redirect("/404");
+    throw new Response("Not Found", { status: 404 });
   }
 
   const res = fetchJob(params.id);
-  if (!res) return redirect("/404");
+  if (!res) {
+    throw new Response("Not Found", { status: 404 });
+  }
 
   return json(res);
 };

@@ -31,7 +31,7 @@ const JobList: React.FC<JobListProps> = ({ jobs }) => {
               return (
                 <Table.Row key={i + id}>
                   <Table.HeaderCell scope="row">
-                    <Link to={`job/${id}`}>{role} </Link>
+                    <Link to={`job/${id}`}>{role}</Link>
                   </Table.HeaderCell>
 
                   <Table.DataCell>{company_name}</Table.DataCell>
@@ -44,14 +44,6 @@ const JobList: React.FC<JobListProps> = ({ jobs }) => {
           )}
         </Table.Body>
       </Table>
-
-      {/* <ul>
-        {jobs.map((job: Job) => (
-          <li key={job.id}>
-            <Link to={`job/${job.id}`}>{job.role}</Link>
-          </li>
-        ))}
-      </ul> */}
     </div>
   );
 };
