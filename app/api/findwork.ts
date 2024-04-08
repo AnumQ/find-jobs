@@ -34,7 +34,7 @@ const fetchJobsfromFindWork = async (query: string) => {
   }
 };
 
-const fetchJob = (id: string): FindWorkJob | undefined => {
+export const fetchJob = (id: string): FindWorkJob | undefined => {
   // The API I am using does not support /jobs/id search so we are
   // filtering through the existing list of jobs from the initial search
   const filtered = jobList.filter((job) => job.id === id);
