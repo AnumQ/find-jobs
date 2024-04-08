@@ -5,6 +5,9 @@
   border-bottom: 1px solid var(--a-border-subtle);
   font-size: var(--a-font-size-heading-small);
   
+  padding: var(--a-spacing-6);
+  
+
   &.dark {
     background-color: var(--a-surface-inverted);
     border-bottom : 1px solid var(--a-border-on-inverted-subtle);
@@ -14,11 +17,12 @@
 
   ul {
     li {
-      padding: var(--a-spacing-3);
+      /* background-color: red; */
+      /* padding: var(--a-spacing-2); */
         /* padding: var(--a-spacing-3); */
     
     & a {
-      padding: var(--a-spacing-4);
+      /* padding: var(--a-spacing-6); */
 
       text-decoration: none;
       color: var(--a-text-subtle);
@@ -33,3 +37,4 @@
   }
   
 } 
+

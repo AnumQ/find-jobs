@@ -11,6 +11,5 @@ export function getClassNameBasedOnDarkMode(
   isDarkMode: boolean,
   className: string
 ) {
-  console.log("isDarkmode now: " + isDarkMode);
   return `${className}${isDarkMode ? " dark" : ""}`;
 }
