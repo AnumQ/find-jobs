@@ -2,8 +2,9 @@
 import React from "react";
 import { JSearchJob } from "~/types/Job";
 import { Link } from "@remix-run/react";
-import { HStack, Table, VStack, Pagination, Skeleton } from "@navikt/ds-react";
+import { HStack, Table, VStack, Pagination } from "@navikt/ds-react";
 import "@styles/joblist.css";
+import { useGlobalContext } from "~/contexts/GlobalContext";
 interface JobListProps {
   isLoading: boolean;
   jobs: JSearchJob[];
@@ -18,6 +19,7 @@ const JobList: React.FC<JobListProps> = ({
   setPageState,
   fetchPageResults,
 }) => {
+  const { isLiveMode } = useGlobalContext();
   return (
     <VStack className="job-list" gap="5">
       <Table className="job-result">
@@ -46,7 +48,9 @@ const JobList: React.FC<JobListProps> = ({
               return (
                 <Table.Row key={i + job_id}>
                   <Table.HeaderCell scope="row">
-                    <Link to={`jobdetail/${job_id}`}>{job_title}</Link>
+                    <Link to={`jobdetail/${job_id}?isLiveMode=${isLiveMode}`}>
+                      {job_title}
+                    </Link>
                   </Table.HeaderCell>
 
                   <Table.DataCell>{employer_name}</Table.DataCell>
