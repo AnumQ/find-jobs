@@ -32,7 +32,7 @@ const JobList: React.FC<JobListProps> = ({
             <Table.HeaderCell scope="col">Source</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
-        <Table.Body>
+        <Table.Body data-cy="job-list">
           {jobs.map(
             (
               {
@@ -63,7 +63,7 @@ const JobList: React.FC<JobListProps> = ({
           )}
         </Table.Body>
       </Table>
-      <HStack justify={"center"}>
+      <HStack justify="center">
         <Pagination
           size="small"
           page={pageState}
@@ -71,7 +71,7 @@ const JobList: React.FC<JobListProps> = ({
             setPageState(page);
             fetchPageResults(page);
           }}
-          count={10} // hard coded since we don't know the total number of result
+          count={3} // hard coded since we don't know the total number of result
           boundaryCount={1}
           siblingCount={1}
         />

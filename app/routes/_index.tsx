@@ -66,7 +66,11 @@ const JSearchView = ({ jobs }: { jobs: JSearchJob[] }) => {
 
   return (
     <>
-      <HStack justify={"space-between"} align={"center"}>
+      <HStack
+        justify={"space-between"}
+        align={"center"}
+        // style={{ background: "green" }}
+      >
         {/* <Heading
               // style={{ backgroundColor: "blue", height: "100%" }}
               level="1"

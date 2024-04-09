@@ -1,3 +1,4 @@
+import { Heading } from "@navikt/ds-react";
 import type { LoaderFunctionArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
@@ -9,9 +10,7 @@ import { JSearchJob } from "~/types/Job";
 
 export const loader = async ({ request, params }: LoaderFunctionArgs) => {
   const url = new URL(request.url);
-  const searchParams = url.searchParams;
-
-  const isLiveMode = searchParams.get("isLiveMode") === "true";
+  const isLiveMode = url.searchParams.get("isLiveMode") === "true";
 
   if (!params || !params.id) {
     throw new Response("Not Found", { status: 404 });
@@ -28,11 +27,12 @@ export default function JSearchJobDetail() {
   const { job } = useLoaderData<typeof loader>();
   // console.log(job);
   return (
-    <main className="mx-auto max-w-4xl">
-      <h1 className="my-6 border-b-2 text-center text-3xl">Job Detail</h1>
+    <main className="">
+      <Heading size="medium" level="1">
+        Job Detail
+      </Heading>
       <p>{job.employer_name}</p>
       {/* change to image */}
-      <p>{job.employer_logo}</p>
       <p>{job.employer_website}</p>
     </main>
   );

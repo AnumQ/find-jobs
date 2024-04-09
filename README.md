@@ -1,6 +1,4 @@
-# Welcome to Remix + Vite!
-
-📖 See the [Remix docs](https://remix.run/docs) and the [Remix Vite docs](https://remix.run/docs/en/main/future/vite) for details on supported features.
+# Frontend developer task
 
 ## Development
 
@@ -18,19 +16,18 @@ First, build your app for production:
 npm run build
 ```
 
-Then run the app in production mode:
+## Tests
+
+1. Open the test suite by running
 
 ```sh
-npm start
+npx cypress open
 ```
 
-Now you'll need to pick a host to deploy it to.
+2. Click on `E2E Testing`
 
-### DIY
+3. Select a browser and click `Start E2E Testing`. A browser window will open.
 
-If you're familiar with deploying Node applications, the built-in Remix app server is production-ready.
+4. Select `Specs` from Side bar. You should see a list of tests as the main content.
 
-Make sure to deploy the output of `npm run build`
-
-- `build/server`
-- `build/client`
+5. Select a test for instance `navigation.cy.ts`. The test will run automatically. 
