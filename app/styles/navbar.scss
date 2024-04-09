@@ -1,0 +1,38 @@
+@import "@navikt/ds-tokens/dist/tokens";
+
+nav.navbar {
+  background-color: var(--a-bg-subtle);
+  border-bottom: 1px solid var(--a-border-subtle);
+  font-size: var(--a-font-size-heading-small);
+  padding: var(--a-spacing-6);
+
+  &.dark {
+    background-color: var(--a-surface-inverted);
+    border-bottom: 1px solid var(--a-border-on-inverted-subtle);
+    color: var(--a-text-on-inverted);
+  }
+
+  li {
+    a {
+      padding: var(--a-spacing-3);
+      padding-left: var(--a-spacing-6);
+      padding-right: var(--a-spacing-6);
+      text-decoration: none;
+      color: var(--a-text-subtle);
+      border-radius: var(--a-spacing-2);
+      font-weight: var(--a-font-weight-bold);
+
+      &:hover {
+        background-color: var(
+          --a-grayalpha-100
+        ); // Example hover color, adjust as needed
+      }
+
+      &.active {
+        color: var(--a-text-on-inverted);
+        background-color: var(--a-deepblue-500);
+        // border-bottom: 2px solid var(--a-deepblue-200);
+      }
+    }
+  }
+}

@@ -1,10 +1,10 @@
 import { NavLink } from "@remix-run/react";
 import { SunIcon, PersonCircleIcon } from "@navikt/aksel-icons";
-import "@styles/navbar.css";
 import { HStack, Box } from "@navikt/ds-react";
 import { useTheme } from "./useClassName";
 import { useGlobalContext } from "~/contexts/GlobalContext";
 import { ReactNode } from "react";
+import "@styles/navbar.scss";
 
 const ListItem = ({ children }: { children: ReactNode }) => {
   const { getClassName } = useTheme();
@@ -15,11 +15,13 @@ const ListItem = ({ children }: { children: ReactNode }) => {
 export function Navigation() {
   const { toggleDarkMode } = useGlobalContext();
 
+  const { getClassName } = useTheme();
+
   return (
-    <Box as="nav">
+    <Box as="nav" className={getClassName("navbar")}>
       <Box as="ul">
-        <HStack gap={"3"} justify={"space-between"}>
-          <HStack gap={{ xs: "1", sm: "2", md: "3", lg: "4" }}>
+        <HStack gap={"5"} justify={"space-between"}>
+          <HStack gap={{ xs: "2", sm: "3", md: "4", lg: "5" }}>
             <ListItem>
               <NavLink data-cy="jobsLink" to={`/`}>
                 Jobs

@@ -1,6 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
-import "@styles/about.css";
 import { BodyShort, Box, Heading, Link, List, Page } from "@navikt/ds-react";
+import "@styles/about.scss";
 
 export const meta: MetaFunction = () => {
   return [

@@ -2,7 +2,7 @@ import type { MetaFunction } from "@remix-run/node";
 // import "@styles/faq.css";
 import data from "./../data/job_seeker_faq.json";
 import { Accordion, VStack } from "@navikt/ds-react";
-import "@styles/faq.css";
+import "@styles/faq.scss";
 
 export const meta: MetaFunction = () => {
   return [

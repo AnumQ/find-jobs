@@ -3,22 +3,17 @@ import React from "react";
 import { JSearchJob } from "~/types/Job";
 import { Link } from "@remix-run/react";
 import { HStack, Table, VStack, Pagination } from "@navikt/ds-react";
-import "@styles/joblist.css";
 import { useGlobalContext } from "~/contexts/GlobalContext";
+import "@styles/joblist.scss";
 interface JobListProps {
   isLoading: boolean;
   jobs: JSearchJob[];
   pageState: number;
   setPageState: React.Dispatch<React.SetStateAction<number>>;
-  fetchPageResults: (page: number) => void;
+  onPageChange: (page: number) => void;
 }
 
-const JobList: React.FC<JobListProps> = ({
-  jobs,
-  pageState,
-  setPageState,
-  fetchPageResults,
-}) => {
+const JobList: React.FC<JobListProps> = ({ jobs, pageState, onPageChange }) => {
   const { isLiveMode } = useGlobalContext();
   return (
     <VStack className="job-list" gap="5">
@@ -67,10 +62,7 @@ const JobList: React.FC<JobListProps> = ({
         <Pagination
           size="small"
           page={pageState}
-          onPageChange={(page) => {
-            setPageState(page);
-            fetchPageResults(page);
-          }}
+          onPageChange={(page) => onPageChange(page)}
           count={3} // hard coded since we don't know the total number of result
           boundaryCount={1}
           siblingCount={1}
