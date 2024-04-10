@@ -9,11 +9,10 @@ import {
   VStack,
 } from "@navikt/ds-react";
 import { useLoaderData } from "@remix-run/react";
-import { loader } from "./jobdetail.$id";
+import { loader } from "../../routes/job.$id";
 
 export default function JSearchJobDetail() {
   const { job } = useLoaderData<typeof loader>();
-  console.log(job);
   return (
     <Page.Block as="main" className="about" width="md">
       <Box padding="8">
@@ -36,7 +35,6 @@ export default function JSearchJobDetail() {
             <Label>Employer: </Label>
             <Detail>{job.employer_name}</Detail>
           </HStack>
-          <BodyShort></BodyShort>
         </VStack>
       </Box>
     </Page.Block>

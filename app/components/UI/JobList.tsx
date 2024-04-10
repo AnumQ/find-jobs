@@ -42,7 +42,7 @@ const JobList: React.FC<JobListProps> = ({ jobs, pageState, onPageChange }) => {
               return (
                 <Table.Row key={i + job_id}>
                   <Table.HeaderCell scope="row">
-                    <Link to={`jobdetail/${job_id}?isLiveMode=${isLiveMode}`}>
+                    <Link to={`job/${job_id}?isLiveMode=${isLiveMode}`}>
                       {job_title}
                     </Link>
                   </Table.HeaderCell>

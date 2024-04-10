@@ -1,23 +1,24 @@
 @import "@styles/_reset.scss";
 
 [data-theme="light"] {
-  --ac-pagination-selected-bg: var(--a-lightblue-900);
+  --ac-switch-checked-bg: var(--a-blue-500); // switch background when loading
+  // --a-surface-neutral-hover: var(--a-surface-inverted-hover);
+  // --a-surface-action-selected: var(--a-text-on-invert);
+  // --a-surface-action-selected-hover: var(--a-blue-500);
+  // --a-icon-action-selected: var(--a-blue-500);
 
-  --ac-switch-checked-bg: var(
-    --a-lightblue-900
-  ); // switch background when loading
-  --a-surface-neutral-hover: var(--a-surface-inverted-hover);
-  --a-surface-action-selected: var(--a-text-on-invert);
-  --a-surface-action-selected-hover: var(--a-lightblue-900);
-  --a-icon-action-selected: var(--a-lightblue-900);
+  // --a-surface-info-subtle: var(--a-surface-inverted-active); // popover
+  // --a-border-info: var(--a-border-on-inverted-subtle);
+  // --a-surface-action-active: var(--a-icon-on-inverted);
+  // --a-text-default: var(--a-text-on-invert);
+  // --a-surface-action: var(--a-text-on-action);
 
-  --a-surface-info-subtle: var(--a-surface-inverted-active); // popover
-  --a-border-info: var(--a-border-on-inverted-subtle);
-  --a-surface-action-active: var(--a-icon-on-inverted);
-  --a-text-default: var(--a-text-on-invert);
-  --a-surface-action: var(--a-text-on-action);
-  --ac-pagination-selected-bg: var(--a-gray-800);
+  // Pagination
+  --ac-pagination-selected-bg: var(--a-blue-500);
 
+  // Buttons in pagination
+  // --a-text-action-on-action-subtle: var(--a-blue-500);
+  --a-surface-action-subtle-hover: var(--a-surface-neutral-subtle-hover);
   // Komponentnivå
   // --ac-expansioncard-bg: var(--a-deepblue-100);
 }
@@ -44,11 +45,11 @@
   --ac-switch-checked-bg: var(--a-gray-400); // switch background when loading
   --a-surface-neutral-hover: var(--a-surface-inverted-hover);
   --a-surface-action-selected: var(--a-text-on-invert);
-  --a-surface-action-selected-hover: var(--a-lightblue-900);
-  --a-icon-action-selected: var(--a-lightblue-900);
+  --a-surface-action-selected-hover: var(--a-blue-500);
+  --a-icon-action-selected: var(--a-blue-500);
   --a-surface-action-hover: var(--a-text-on-action);
 
-  --ac-switch-thumb-bg: var(--a-lightblue-900); // circle in the switch
+  --ac-switch-thumb-bg: var(--a-blue-500); // circle in the switch
   --ac-switch-thumb-icon: red;
   --ac-switch-thumb-icon-checked: var(--a-green-400);
   --a-text-action: var(--a-text-on-action);
