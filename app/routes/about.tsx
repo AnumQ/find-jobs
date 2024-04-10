@@ -1,6 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
 import { BodyShort, Box, Heading, Link, Page, VStack } from "@navikt/ds-react";
-import "@styles/about.scss";
 import { getMeta } from "~/utils/utils";
 
 export const meta: MetaFunction = () => getMeta("About | Find Your Next Job");

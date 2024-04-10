@@ -27,7 +27,7 @@
   --a-surface-default: var(--a-surface-inverted);
   --a-border-subtle: var(--a-border-on-inverted-subtle);
   --a-text-subtle: var(--a-text-on-invert);
-  --a-border-default: var(--a-surface-neutral);
+  --a-border-default: var(--a-border-on-inverted);
   --a-border-strong: var(--a-gray-400);
   --a-surface-neutral-moderate: var(--a-gray-800);
   // Popover
@@ -60,6 +60,9 @@
   // Accordion:
   --ac-accordion-header-border: var(--a-gray-400);
   --ac-accordion-item-bg-open: var(--a-gray-800);
+
+  // Expansion-card:
+  --__ac-expansioncard-border-color: red;
 }
 
 .footer {

@@ -96,7 +96,7 @@ const JobListView = ({ jobs }: { jobs: JSearchJob[] }) => {
             onChange={async (e) => {
               if (e.target.checked) {
                 setIsSwitchLoading(true);
-                // fetchPageResults(pageState, true);
+                fetchPageResults(pageState, true);
               }
               toggleLiveMode();
             }}

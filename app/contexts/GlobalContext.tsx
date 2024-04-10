@@ -41,10 +41,6 @@ export const GlobalContextProvider = ({
     [isLiveMode, isDarkMode]
   );
 
-  useEffect(() => {
-    console.log("isDarkMode", isDarkMode);
-  }, [isDarkMode]);
-
   return (
     <GlobalContext.Provider value={contextValue}>
       {children}

@@ -4,7 +4,6 @@ import { JSearchJob } from "~/types/Job";
 import { Link } from "@remix-run/react";
 import { HStack, Table, VStack, Pagination } from "@navikt/ds-react";
 import { useGlobalContext } from "~/contexts/GlobalContext";
-import "@styles/joblist.scss";
 interface JobListProps {
   isLoading: boolean;
   jobs: JSearchJob[];

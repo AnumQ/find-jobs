@@ -14,7 +14,6 @@ import {
   PencilIcon,
   TrendUpIcon,
 } from "@navikt/aksel-icons";
-import "@styles/advice.scss";
 
 export const meta: MetaFunction = () => {
   return [

@@ -9,7 +9,6 @@ import {
   Page,
   VStack,
 } from "@navikt/ds-react";
-import "@styles/faq.scss";
 
 export const meta: MetaFunction = () => {
   return [
