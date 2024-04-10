@@ -8,9 +8,21 @@ import {
 } from "@remix-run/react";
 import { Navigation } from "./components/Navigation";
 import "@navikt/ds-css";
-import { BodyShort, Box, Heading, Link, List, Page } from "@navikt/ds-react";
-import { GlobalContextProvider } from "./contexts/GlobalContext";
-
+import {
+  BodyShort,
+  Box,
+  Detail,
+  HStack,
+  Heading,
+  Link,
+  List,
+  Page,
+} from "@navikt/ds-react";
+import {
+  GlobalContextProvider,
+  useGlobalContext,
+} from "./contexts/GlobalContext";
+import "@styles/_index.scss";
 
 // Error boundary component
 export function ErrorBoundary() {
@@ -53,36 +65,59 @@ export function ErrorBoundary() {
 
 function Footer() {
   return (
-    <Box background="surface-neutral-moderate" padding="8" as="footer">
+    <Box className="footer" padding="8" as="footer">
       <Page.Block gutters width="lg">
-        Footer
+        <HStack justify={"center"}>
+          <Box className={"footer-text"}>
+            <Detail>
+              {" "}
+              © 2024 Jobs Portal | All rights reserved. App created by Anum
+            </Detail>
+          </Box>
+        </HStack>
       </Page.Block>
     </Box>
   );
 }
 
+const Body = ({ children }: { children: React.ReactNode }) => {
+  const { isDarkMode } = useGlobalContext();
+  return (
+    <body
+      style={{ backgroundColor: isDarkMode ? "var(--a-surface-inverted)" : "" }}
+      data-theme={!isDarkMode ? "light" : "dark"}
+    >
+      <Page
+        style={{
+          // must override the inline style on - PAGE is still on eksperimental mode
+          backgroundColor: isDarkMode ? "var(--a-surface-inverted)" : "",
+        }}
+        footer={<Footer />}
+      >
+        <Page.Block>
+          <Navigation />
+        </Page.Block>
+        <Page.Block gutters>{children}</Page.Block>
+      </Page>
+      <ScrollRestoration />
+      <Scripts />
+    </body>
+  );
+};
+
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <Meta />
-        <Links />
-      </head>
-      <body>
-        <GlobalContextProvider>
-          <Page footer={<Footer />}>
-            <Page.Block>
-              <Navigation />
-            </Page.Block>
-            <Page.Block gutters>{children}</Page.Block>
-          </Page>
-          <ScrollRestoration />
-          <Scripts />
-        </GlobalContextProvider>
-      </body>
-    </html>
+    <GlobalContextProvider>
+      <html lang="en">
+        <head>
+          <meta charSet="utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <Meta />
+          <Links />
+        </head>
+        <Body>{children}</Body>
+      </html>
+    </GlobalContextProvider>
   );
 }
 

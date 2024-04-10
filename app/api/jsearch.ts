@@ -56,7 +56,6 @@ const fetchJobsFromLive = async (
     const numOfReqRemaining =
       response.headers.get("x-ratelimit-requests-remaining") || "";
 
-    console.log(numOfReqRemaining);
     return {
       numReq: numOfReqRemaining,
       data: data || [],

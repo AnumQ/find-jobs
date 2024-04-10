@@ -5,21 +5,17 @@ import {
   MenuHamburgerIcon,
   XMarkIcon,
 } from "@navikt/aksel-icons";
-import { HStack, Box, Page, Button } from "@navikt/ds-react";
-import { useTheme } from "./useClassName";
+import { HStack, Box, Page } from "@navikt/ds-react";
 import { useGlobalContext } from "~/contexts/GlobalContext";
 import { ReactNode, useState } from "react";
 import "@styles/navbar.scss";
 
 const ListItem = ({ children }: { children: ReactNode }) => {
-  const { getClassName } = useTheme();
-
-  return <li className={getClassName("list-item")}>{children}</li>;
+  return <li className={"list-item"}>{children}</li>;
 };
 
 export function Navigation() {
   const { toggleDarkMode } = useGlobalContext();
-  const { getClassName } = useTheme();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -31,23 +27,20 @@ export function Navigation() {
     }
   };
   return (
-    <Box as="nav" id="nav" className={getClassName("navbar")}>
+    <Box as="nav" id="nav" className={"navbar"}>
       <Page.Block>
-        <div className={getClassName("navbar-mobile")}>
+        <div className={"navbar-mobile"}>
           <HStack justify="start">
-            <button
-              className={getClassName("menu-button")}
-              onClick={toggleMenu}
-            >
+            <button className={"menu-button"} onClick={toggleMenu}>
               {!isMenuOpen ? (
                 <MenuHamburgerIcon
-                  className={getClassName("hamburger-menu-icon")}
+                  className={"hamburger-menu-icon"}
                   title="menu"
                   fontSize="1.5rem"
                 />
               ) : (
                 <XMarkIcon
-                  className={getClassName("close-menu-icon")}
+                  className={"close-menu-icon"}
                   title="close menu"
                   fontSize="1.5rem"
                 />
@@ -55,25 +48,16 @@ export function Navigation() {
             </button>
           </HStack>
         </div>
-        <Box
-          as="ul"
-          className={`${getClassName("nav-bar-ul")} ${
-            isMenuOpen ? "open" : ""
-          }`}
-        >
-          <HStack
-            gap={"5"}
-            justify={"space-between"}
-            className={getClassName("menu-stack")}
-          >
+        <Box as="ul" className={`${"nav-bar-ul"} ${isMenuOpen ? "open" : ""}`}>
+          <HStack gap={"5"} justify={"space-between"} className={"menu-stack"}>
             <HStack
-              className={getClassName("nav-link-list")}
+              className={"nav-link-list"}
               gap={{ xs: "2", sm: "3", md: "4", lg: "5" }}
             >
               <ListItem>
                 <NavLink
                   onClick={closeMenu}
-                  className={getClassName("nav-link")}
+                  className={"nav-link"}
                   data-cy="jobsLink"
                   to={`/`}
                 >
@@ -83,7 +67,7 @@ export function Navigation() {
               <ListItem>
                 <NavLink
                   onClick={closeMenu}
-                  className={getClassName("nav-link")}
+                  className={"nav-link"}
                   data-cy="adviceLink"
                   to={`/advice`}
                 >
@@ -93,7 +77,7 @@ export function Navigation() {
               <ListItem>
                 <NavLink
                   onClick={closeMenu}
-                  className={getClassName("nav-link")}
+                  className={"nav-link"}
                   data-cy="faqLink"
                   to={`/faq`}
                 >
@@ -103,7 +87,7 @@ export function Navigation() {
               <ListItem>
                 <NavLink
                   onClick={closeMenu}
-                  className={getClassName("nav-link")}
+                  className={"nav-link"}
                   data-cy="tipsLink"
                   to={`/tips`}
                 >
@@ -113,7 +97,7 @@ export function Navigation() {
               <ListItem>
                 <NavLink
                   onClick={closeMenu}
-                  className={getClassName("nav-link")}
+                  className={"nav-link"}
                   data-cy="aboutUsLink"
                   to={`/about`}
                 >
@@ -121,7 +105,7 @@ export function Navigation() {
                 </NavLink>
               </ListItem>
             </HStack>
-            <HStack className={getClassName("right-menu")} gap="1">
+            <HStack className={"right-menu"} gap="1">
               <ListItem>
                 <button
                   data-cy="darkModeToggle"

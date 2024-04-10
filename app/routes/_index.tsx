@@ -92,11 +92,11 @@ const JobListView = ({ jobs }: { jobs: JSearchJob[] }) => {
         <HStack align={"center"} gap="2">
           <Switch
             checked={isLiveMode}
-            loading={isSwitchLoading}
+            loading={false}
             onChange={async (e) => {
               if (e.target.checked) {
                 setIsSwitchLoading(true);
-                fetchPageResults(pageState, true);
+                // fetchPageResults(pageState, true);
               }
               toggleLiveMode();
             }}

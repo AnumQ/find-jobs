@@ -1,1 +1,67 @@
 @import "@styles/_reset.scss";
+
+[data-theme="light"] {
+  --ac-pagination-selected-bg: var(--a-lightblue-900);
+
+  --ac-switch-checked-bg: var(
+    --a-lightblue-900
+  ); // switch background when loading
+  --a-surface-neutral-hover: var(--a-surface-inverted-hover);
+  --a-surface-action-selected: var(--a-text-on-invert);
+  --a-surface-action-selected-hover: var(--a-lightblue-900);
+  --a-icon-action-selected: var(--a-lightblue-900);
+
+  --a-surface-info-subtle: var(--a-surface-inverted-active); // popover
+  --a-border-info: var(--a-border-on-inverted-subtle);
+  --a-surface-action-active: var(--a-icon-on-inverted);
+  --a-text-default: var(--a-text-on-invert);
+  --a-surface-action: var(--a-text-on-action);
+  --ac-pagination-selected-bg: var(--a-gray-800);
+
+  // Komponentnivå
+  // --ac-expansioncard-bg: var(--a-deepblue-100);
+}
+
+[data-theme="dark"] {
+  --a-bg-subtle: var(--a-surface-inverted);
+  --a-surface-default: var(--a-surface-inverted);
+  --a-border-subtle: var(--a-border-on-inverted-subtle);
+  --a-text-subtle: var(--a-text-on-invert);
+  --a-border-default: var(--a-surface-neutral);
+  --a-border-strong: var(--a-gray-400);
+  --a-surface-neutral-moderate: var(--a-gray-800);
+  // Popover
+  --a-surface-info-subtle: var(--a-surface-inverted-active); // popover
+  --a-border-info: var(--a-border-on-inverted-subtle);
+  --a-surface-action-active: var(--a-surface-inverted-active);
+  --a-surface-action-subtle-hover: var(--a-surface-inverted-hover);
+  --a-text-action-on-action-subtle: var(--a-text-on-inverted);
+  --a-text-default: var(--a-text-on-invert);
+  --a-surface-action: var(--a-text-on-action);
+  --ac-pagination-selected-bg: var(--a-gray-800);
+
+  // Switch
+  --ac-switch-checked-bg: var(--a-gray-400); // switch background when loading
+  --a-surface-neutral-hover: var(--a-surface-inverted-hover);
+  --a-surface-action-selected: var(--a-text-on-invert);
+  --a-surface-action-selected-hover: var(--a-lightblue-900);
+  --a-icon-action-selected: var(--a-lightblue-900);
+  --a-surface-action-hover: var(--a-text-on-action);
+
+  --ac-switch-thumb-bg: var(--a-lightblue-900); // circle in the switch
+  --ac-switch-thumb-icon: red;
+  --ac-switch-thumb-icon-checked: var(--a-green-400);
+  --a-text-action: var(--a-text-on-action);
+
+  // Button
+  --__ac-button-primary-bg: var(--a-gray-800);
+  --__ac-button-primary-text: var(--a-text-on-action);
+
+  // Accordion:
+  --ac-accordion-header-border: var(--a-gray-400);
+  --ac-accordion-item-bg-open: var(--a-gray-800);
+}
+
+.footer {
+  background-color: var(--a-surface-neutral-moderate);
+}

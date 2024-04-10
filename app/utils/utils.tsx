@@ -7,12 +7,12 @@ export function chunkArray<T>(array: T[], chunkSize: number): T[][] {
   return result;
 }
 
-export function getClassNameBasedOnDarkMode(
-  isDarkMode: boolean,
-  className: string
-) {
-  return `${className}${isDarkMode ? " dark" : ""}`;
-}
+// export function getClassNameBasedOnDarkMode(
+//   isDarkMode: boolean,
+//   className: string
+// ) {
+//   return `${className}${isDarkMode ? " dark" : ""}`;
+// }
 
 export function getMeta(title: string) {
   return [

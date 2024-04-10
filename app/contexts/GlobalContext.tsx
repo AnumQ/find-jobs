@@ -1,8 +1,15 @@
-import { ReactNode, createContext, useContext, useMemo, useState } from "react";
+import {
+  ReactNode,
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 
 const defaultValue = {
   isLiveMode: false,
-  isDarkMode: false,
+  isDarkMode: true,
   toggleLiveMode: () => {},
   toggleDarkMode: () => {},
 };
@@ -33,6 +40,10 @@ export const GlobalContextProvider = ({
     }),
     [isLiveMode, isDarkMode]
   );
+
+  useEffect(() => {
+    console.log("isDarkMode", isDarkMode);
+  }, [isDarkMode]);
 
   return (
     <GlobalContext.Provider value={contextValue}>
