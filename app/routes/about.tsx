@@ -1,37 +1,40 @@
 import type { MetaFunction } from "@remix-run/node";
-import { BodyShort, Box, Heading, Link, List, Page } from "@navikt/ds-react";
+import { BodyShort, Box, Heading, Link, Page, VStack } from "@navikt/ds-react";
 import "@styles/about.scss";
+import { getMeta } from "~/utils/utils";
 
-export const meta: MetaFunction = () => {
-  return [
-    { title: "About | Find Your Next Job" },
-    {
-      name: "description",
-      content:
-        "Find you next job easily, search fast through jobs posted on linkedln, google etc.",
-    },
-  ];
-};
+export const meta: MetaFunction = () => getMeta("About | Find Your Next Job");
 
 export default function About() {
   return (
-    <div className="about">
-      <Heading level="1" size="medium">
-        About page
-      </Heading>
-      <BodyShort>
-        Find you next job easily, search fast through jobs posted on linkedln,
-        google etc.
-      </BodyShort>
-      <BodyShort>
-        This app leverages the{" "}
-        <span>
-          <a href="https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch">
-            JSearch API
-          </a>{" "}
-        </span>
-        to search for the latest job postings across multiple platforms.
-      </BodyShort>
-    </div>
+    <Page.Block as="main" className="about" width="md">
+      <Box padding={{ xs: "4", sm: "8", md: "10", lg: "12" }}>
+        <VStack gap="4">
+          <Heading level="1" size="medium">
+            About page
+          </Heading>
+          <BodyShort>
+            This app leverages the{" "}
+            <Link href="https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch">
+              JSearch API
+            </Link>{" "}
+            to search for the latest job postings across multiple platforms.
+          </BodyShort>
+          <BodyShort>
+            This app was created using React, Typescript & Remix. The app
+            demonstrates the ability to produce reusable, maintaible and
+            implement components from the{" "}
+            <Link href="https://aksel.nav.no/">NAV Aksel Design System</Link>
+          </BodyShort>
+          <Box>
+            <img
+              width="100%"
+              src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg"
+              alt="people working"
+            />
+          </Box>
+        </VStack>
+      </Box>
+    </Page.Block>
   );
 }

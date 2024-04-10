@@ -14,7 +14,6 @@ import {
   PencilIcon,
   TrendUpIcon,
 } from "@navikt/aksel-icons";
-
 import "@styles/advice.scss";
 
 export const meta: MetaFunction = () => {
@@ -30,8 +29,8 @@ export const meta: MetaFunction = () => {
 
 export default function Advice() {
   return (
-    <Page.Block gutters width="xl">
-      <Box padding={{ xs: "4", sm: "8", md: "12", lg: "16" }}>
+    <Page.Block as="main" width="xl">
+      <Box padding={{ xs: "4", sm: "8", md: "10", lg: "12" }}>
         <VStack as="main" className="advice" gap="8">
           <VStack gap="4">
             <HStack align="center" gap="1">

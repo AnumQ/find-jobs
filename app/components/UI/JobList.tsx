@@ -63,7 +63,7 @@ const JobList: React.FC<JobListProps> = ({ jobs, pageState, onPageChange }) => {
           size="small"
           page={pageState}
           onPageChange={(page) => onPageChange(page)}
-          count={3} // hard coded since we don't know the total number of result
+          count={3} // hard coded since we don't know the total number of result and  this is only a test project
           boundaryCount={1}
           siblingCount={1}
         />

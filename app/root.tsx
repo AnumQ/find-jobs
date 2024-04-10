@@ -10,7 +10,7 @@ import { Navigation } from "./components/Navigation";
 import "@navikt/ds-css";
 import { BodyShort, Box, Heading, Link, List, Page } from "@navikt/ds-react";
 import { GlobalContextProvider } from "./contexts/GlobalContext";
-import "@styles/_index.scss";
+
 
 // Error boundary component
 export function ErrorBoundary() {

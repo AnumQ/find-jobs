@@ -1,5 +1,11 @@
 # Frontend developer task
 
+## Installation
+
+```shellscript
+npm i
+```
+
 ## Development
 
 Run the Vite dev server:
@@ -30,4 +36,4 @@ npx cypress open
 
 4. Select `Specs` from Side bar. You should see a list of tests as the main content.
 
-5. Select a test for instance `navigation.cy.ts`. The test will run automatically. 
+5. Select a test for instance `navigation.cy.ts`. The test will run automatically.

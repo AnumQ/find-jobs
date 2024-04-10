@@ -13,3 +13,14 @@ export function getClassNameBasedOnDarkMode(
 ) {
   return `${className}${isDarkMode ? " dark" : ""}`;
 }
+
+export function getMeta(title: string) {
+  return [
+    { title: `${title} | Find Your Next Job` },
+    {
+      name: "description",
+      content:
+        "Find you next job easily, search fast through jobs posted on linkedln, google etc.",
+    },
+  ];
+}
