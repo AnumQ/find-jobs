@@ -33,9 +33,9 @@ export function Navigation() {
             aria-expanded={isMenuOpen}
             icon={
               !isMenuOpen ? (
-                <MenuHamburgerIcon title="menu" fontSize="1.5rem" />
+                <MenuHamburgerIcon aria-hidden fontSize="1.5rem" />
               ) : (
-                <XMarkIcon title="close menu" fontSize="1.5rem" />
+                <XMarkIcon aria-hidden fontSize="1.5rem" />
               )
             }
             className={"menu-button"}
@@ -118,7 +118,7 @@ export function Navigation() {
                 <Button
                   data-cy="profileButton"
                   variant="tertiary-neutral"
-                  title="View Profile" // for accessibility
+                  title="View Profile"
                   onClick={() =>
                     alert("Not yet implemented. Come back later. ")
                   }
