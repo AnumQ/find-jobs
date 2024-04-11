@@ -1,6 +1,6 @@
 # Frontend utvikler oppgave
 
-This application allows user to view a list of jobs. 
+This application allows user to view a list of jobs.
 
 ## Installasjon
 
@@ -10,7 +10,7 @@ npm i
 
 ## Utvikling lokalt
 
-Kjør utviklingsserver ved å kjøre kommando: 
+Kjør utviklingsserver ved å kjøre kommando:
 
 ```shellscript
 npm run dev
@@ -28,7 +28,7 @@ npx cypress open
 
 2. Klikk på `E2E Testing`
 
-3. Velg en nettleser og klikk `Start E2E Testing`. Et nytt nettleservindu åpnes. 
+3. Velg en nettleser og klikk `Start E2E Testing`. Et nytt nettleservindu åpnes.
 
 4. Velg `Specs` fra sidepanel. Du bør nå se en liste over tester som hovedinnhold.
 
@@ -52,7 +52,7 @@ Det finnes 3 nivåer når man bruker designsystemet NAV Aksel. Jeg har brukt all
 
 1. Nivå 1 er design tokens. De er brukt i alle scss filer. Se `_index.scss` for eksempel.
 2. Nivå 2 er komponenter. Disse er brukt i flere komponent filer. Se `JobList.tsx` for eksempel.
-3. Nivå 3 er mal. Jeg har brukt en mal som heter [404 Mal] (https://aksel.nav.no/monster-maler/maler/404-side) fra designsystemt. Denne er brukt i `ErrorPage.tsx` og vises når brukeren prøver å gå til en lenke som er ødelagt/ikke finnes.
+3. Nivå 3 er mal. Jeg har brukt en mal som heter [404 Mal](https://aksel.nav.no/monster-maler/maler/404-side) fra designsystemt. Denne er brukt i `ErrorPage.tsx` og vises når brukeren prøver å gå til en lenke som er ødelagt/ikke finnes.
 
 #### Liste over komponenter som er brukt i applikasjonen:
 
