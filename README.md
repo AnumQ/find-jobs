@@ -18,7 +18,7 @@ npm run dev
 
 ### Instruksjoner for å kjøre tester
 
-Det er laget minst to tester, etter kravet i oppgaven. Den ene testen tester ut alle lenkene i meny-en.
+Det er laget minst to tester, etter kravet i oppgaven. Den ene testen tester ut alle lenkene i navigasjonsmenyen. De andre testene tester ut funksjonaliteten i listevisning og detaljevisning. 
 
 1. Åpne testpakken ved å kjøre
 
