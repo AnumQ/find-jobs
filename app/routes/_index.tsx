@@ -16,16 +16,9 @@ import JobList from "~/components/UI/JobList";
 import { useCallback, useState } from "react";
 import { Job } from "~/types/Job";
 import { useGlobalContext } from "~/contexts/GlobalContext";
+import { getMeta } from "~/utils/utils";
 
-export const meta: MetaFunction = () => {
-  return [
-    { title: "Home | Find Your Next Job Easily" },
-    {
-      name: "description",
-      content: "Find job listings fast from google, linkedln etc.",
-    },
-  ];
-};
+export const meta: MetaFunction = () => getMeta("Home");
 
 const DEFAULT_QUERY = "frontend norway";
 
@@ -41,20 +34,9 @@ export const loader: LoaderFunction = async () => {
 const SkeletonView = () => {
   return (
     <VStack gap="2" className="w-100">
-      <Skeleton variant="rectangle" width="100%" height={30} />
-      <Skeleton variant="rectangle" width="100%" height={30} />
-      <Skeleton variant="rectangle" width="100%" height={30} />
-      <Skeleton variant="rectangle" width="100%" height={30} />
-      <Skeleton variant="rectangle" width="100%" height={30} />
-      <Skeleton variant="rectangle" width="100%" height={30} />
-      <Skeleton variant="rectangle" width="100%" height={30} />
-      <Skeleton variant="rectangle" width="100%" height={30} />
-      <Skeleton variant="rectangle" width="100%" height={30} />
-      <Skeleton variant="rectangle" width="100%" height={30} />
-      <Skeleton variant="rectangle" width="100%" height={30} />
-      <Skeleton variant="rectangle" width="100%" height={30} />
-      <Skeleton variant="rectangle" width="100%" height={30} />
-      <Skeleton variant="rectangle" width="100%" height={30} />
+      {Array.from({ length: 15 }).map((_, index) => (
+        <Skeleton key={index} variant="rectangle" width="100%" height={30} />
+      ))}
     </VStack>
   );
 };

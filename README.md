@@ -1,7 +1,5 @@
 # Frontend utvikler oppgave
 
-This application allows user to view a list of jobs.
-
 ## Installasjon
 
 ```shellscript
@@ -33,6 +31,28 @@ npx cypress open
 4. Velg `Specs` fra sidepanel. Du bør nå se en liste over tester som hovedinnhold.
 
 5. Velg en test, for eksempel `navigation.cy.ts`. Testen kjøres automatisk.
+
+## Funksjonalitet
+
+1. Listevisning
+Applikasjonen viser en liste med jobbutlysninger. 
+
+2. Detaljevisning
+Når man klikker på et element i listen, blir brukeren ført til detaljevisning av elementet. 
+
+3. Navigasjon
+Brukeren kan navigere til forskjellige sider ved å klikke på lenker i navigasjonen
+
+4. Integrasjon med API
+Applikasjonen er integrert med ekstern API. Dette API-et har en maks grense på antall tillate forespørsler før man må bytte om til en betalt abonnoment. Av den grunn er standard konfigurert til å bruke test data for å ikke overskride denne grensen. 
+
+For å hente data fra API-et er det bare å skru på bryteren `Use live data` på forsiden. Du skal da også se hvor mange forespørsler du har igjen. Hvis du går tom for forespørsler, er det bare å ta kontakt med Anum. 
+
+5. Natt modus
+Brukeren kan veksle mellom dag- og nattmodus ved å klikke på ikonet i navigasjonsmeny-en. 
+
+6. Støtte for mobile flater
+Applikasjonen støtter alle flater. Mer informajon om dette kan du lese om lenger ned. 
 
 ## Dokumentasjon på valg av API
 

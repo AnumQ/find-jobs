@@ -22,8 +22,12 @@ export default function About() {
           <BodyShort>
             This app was created using React, Typescript & Remix. The app
             demonstrates the ability to produce reusable, maintaible and
-            implement components from the{" "}
-            <Link href="https://aksel.nav.no/">NAV Aksel Design System</Link>
+            implement components from{" "}
+            <span>
+              <Link href="https://aksel.nav.no/" inlineText>
+                NAV Aksel Design System.
+              </Link>{" "}
+            </span>
           </BodyShort>
           <Box>
             <img
