@@ -35,10 +35,9 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
 
   return json({ job: res as unknown as JobDetailType });
 };
-
 export default function JobDetail() {
   const { job } = useLoaderData<typeof loader>();
-  // console.log(job);
+
   return (
     <Page.Block as="main" className="about" width="md">
       <Box padding={{ xs: "3", sm: "4", md: "6", lg: "5" }}>
@@ -55,42 +54,52 @@ export default function JobDetail() {
           <VStack gap="5">
             <HStack gap="2">
               <Label>Employer: </Label>
-              <BodyShort>{job.employer_name}</BodyShort>
+              <BodyShort data-cy="employer-name">{job.employer_name}</BodyShort>
             </HStack>
             <HStack gap="2">
-              <Label>Employer Website </Label>
-              <Link href={job.employer_website || ""}>
+              <Label>Employer Website: </Label>
+              <Link
+                href={job.employer_website || ""}
+                data-cy="employer-website"
+              >
                 {job.employer_website}
               </Link>
             </HStack>
             <HStack gap="2">
               <Label>Source: </Label>
-              <Link href={job.job_google_link}>Google</Link>
+              <Link href={job.job_google_link} data-cy="source-link">
+                Google
+              </Link>
             </HStack>
 
             <HStack gap="2">
               <Label>Description: </Label>
-              <BodyLong>
+              <BodyLong data-cy="job-description">
                 {truncateText(job.job_description)}{" "}
                 <Link
                   onClick={() => alert("Not implemented yet. Come back later")}
                   href="#"
                   inlineText
                   variant="neutral"
+                  data-cy="read-more-link"
                 >
                   read more
                 </Link>
               </BodyLong>
             </HStack>
             <HStack gap="2">
-              <List as="ul" title="Qualifications">
+              <List
+                as="ul"
+                title="Qualifications"
+                data-cy="qualifications-list"
+              >
                 {job.job_highlights?.Qualifications?.map((q, index) => (
                   <List.Item key={index}>{q}</List.Item>
                 ))}
               </List>
             </HStack>
             <HStack gap="2" justify={"start"}>
-              <Link href={job.job_apply_link || ""}>
+              <Link href={job.job_apply_link || ""} data-cy="apply-link">
                 <Button as="a">Apply here</Button>
               </Link>
             </HStack>

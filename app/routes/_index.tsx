@@ -31,6 +31,36 @@ export const loader: LoaderFunction = async () => {
   });
 };
 
+function LiveDataSwitch({
+  isLiveMode,
+  isSwitchLoading,
+  onChange,
+}: {
+  isLiveMode: boolean;
+  isSwitchLoading: boolean;
+  onChange: (checked: boolean) => void;
+}) {
+  return (
+    <Switch
+      checked={isLiveMode}
+      loading={isSwitchLoading}
+      onChange={(e) => onChange(e.target.checked)}
+      data-cy="live-mode-switch"
+    >
+      Use live data{" "}
+    </Switch>
+  );
+}
+
+function LiveDataHelpText() {
+  return (
+    <HelpText title="Use live data">
+      When turned on, the page gets real data from the JSearch API. This is
+      turned off by default to avoid exceeding the maximum request limit.
+    </HelpText>
+  );
+}
+
 const JobListView = ({ jobs }: { jobs: Job[] }) => {
   const [pageResults, setPageResults] = useState<Job[]>(jobs);
   const [pageState, setPageState] = useState(1); // initial page state
@@ -43,17 +73,15 @@ const JobListView = ({ jobs }: { jobs: Job[] }) => {
   const fetchPageResults = useCallback(
     async (page: number, isLiveMode: boolean) => {
       setIsLoading(true);
-      setTimeout(async () => {
-        async function fetchPage(page: number) {
-          const res = await fetchJobs(DEFAULT_QUERY, page, isLiveMode);
-          const { numReq, data } = res;
-          setNumReq(numReq);
-          setPageResults(data);
-          setIsLoading(false);
-          setIsSwitchLoading(false);
-        }
-        fetchPage(page);
-      }, 1000);
+      async function fetchPage(page: number) {
+        const res = await fetchJobs(DEFAULT_QUERY, page, isLiveMode);
+        const { numReq, data } = res;
+        setNumReq(numReq);
+        setPageResults(data);
+        setIsLoading(false);
+        setIsSwitchLoading(false);
+      }
+      fetchPage(page);
     },
     []
   );
@@ -61,7 +89,7 @@ const JobListView = ({ jobs }: { jobs: Job[] }) => {
   return (
     <>
       <VStack>
-        <Box padding={{ xs: "2", sm: "3", md: "4" }}>
+        <Box padding={{ xs: "2", sm: "3", md: "4", lg: "6" }}>
           <HStack justify={"center"}>
             <Heading size="small">
               Displaying search results for:{" "}
@@ -69,27 +97,21 @@ const JobListView = ({ jobs }: { jobs: Job[] }) => {
             </Heading>
           </HStack>
         </Box>
-        <Box>
+        <Box padding={{ xs: "2", sm: "0" }}>
           <HStack align="center" justify={"space-between"}>
             <HStack align={"center"} gap="2">
-              <Switch
-                checked={isLiveMode}
-                loading={isSwitchLoading}
-                onChange={async (e) => {
-                  if (e.target.checked) {
+              <LiveDataSwitch
+                isLiveMode={isLiveMode}
+                isSwitchLoading={isSwitchLoading}
+                onChange={(checked) => {
+                  if (checked) {
                     setIsSwitchLoading(true);
                     fetchPageResults(pageState, true);
                   }
                   toggleLiveMode();
                 }}
-              >
-                Use live data{" "}
-              </Switch>
-              <HelpText title="Use live data">
-                When turned on, the page gets real data from the JSearch API.
-                This is turned off by default to avoid exceeding the maximum
-                request limit.
-              </HelpText>
+              ></LiveDataSwitch>
+              <LiveDataHelpText></LiveDataHelpText>
             </HStack>
             {isLiveMode && numReqState.length > 0 && (
               <Detail>Number of requests remaining: {numReqState}</Detail>

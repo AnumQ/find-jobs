@@ -26,7 +26,10 @@ export const JobDataRow = ({
   return (
     <Table.Row key={rowIndex + job_id}>
       <Table.HeaderCell scope="row">
-        <RemixLink to={`job/${job_id}?isLiveMode=${isLiveMode}`}>
+        <RemixLink
+          data-cy={`job-link-${job_id}`}
+          to={`job/${job_id}?isLiveMode=${isLiveMode}`}
+        >
           {job_title}
         </RemixLink>
       </Table.HeaderCell>

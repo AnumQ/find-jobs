@@ -76,7 +76,7 @@ Det finnes 3 nivåer når man bruker designsystemet NAV Aksel. Jeg har brukt all
 2. Nivå 2 er komponenter. Disse er brukt i flere komponent filer. Se `JobList.tsx` for eksempel.
 3. Nivå 3 er mal. Jeg har brukt en mal som heter [404 Mal](https://aksel.nav.no/monster-maler/maler/404-side) fra designsystemet. Denne er brukt i `ErrorPage.tsx` og vises når brukeren prøver å gå til en lenke som er ødelagt/ikke finnes.
 
-#### Liste over komponenter som er brukt i applikasjonen:
+#### Liste over komponenter fra NAV Aksel som er brukt i applikasjonen:
 
 - Page
 - Box
@@ -89,6 +89,7 @@ Det finnes 3 nivåer når man bruker designsystemet NAV Aksel. Jeg har brukt all
 - Table.DataCell
 - SkeletonView
 - Pagination
+- HelpText
 - Button
 - Link
 - Heading
