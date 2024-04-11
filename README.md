@@ -1,14 +1,16 @@
-# Frontend developer task
+# Frontend utvikler oppgave
 
-## Installation
+This application allows user to view a list of jobs. 
+
+## Installasjon
 
 ```shellscript
 npm i
 ```
 
-## Development
+## Utvikling lokalt
 
-Run the Vite dev server:
+Kjør utviklingsserver ved å kjøre kommando: 
 
 ```shellscript
 npm run dev
@@ -16,19 +18,21 @@ npm run dev
 
 ## Tests
 
-1. Open the test suite by running
+### Instruksjoner for å kjøre tester
+
+1. Open the test testpakken ved å kjøre
 
 ```sh
 npx cypress open
 ```
 
-2. Click on `E2E Testing`
+2. Klikk på `E2E Testing`
 
-3. Select a browser and click `Start E2E Testing`. A browser window will open.
+3. Velg en nettleser og klikk `Start E2E Testing`. Et nytt nettleservindu åpnes. 
 
-4. Select `Specs` from Side bar. You should see a list of tests as the main content.
+4. Velg `Specs` fra sidepanel. Du bør nå se en liste over tester som hovedinnhold.
 
-5. Select a test for instance `navigation.cy.ts`. The test will run automatically.
+5. Velg en test, for eksempel `navigation.cy.ts`. Testen kjøres automatisk.
 
 ## Dokumentasjon på valg av API
 
