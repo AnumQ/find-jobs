@@ -130,7 +130,7 @@ Design tokens er overstyrt på semantisk og komponentnivå for å oppnå dette. 
 
 #### Antagelser
 
-Det er foretatt følgende antagelser. Disse gjelder tabellen (listevisningen) på forsiden:
+Det er foretatt noen antagelser, og disse gjelder tabellen (listevisningen) på forsiden:
 
 - Kun 4 kolonner i tabellen skal vises på flater tilegnet tablett.
 - Kun 2 kolonner i tabellen skal vises på flater tilsvarende mobil.
