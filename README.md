@@ -38,7 +38,7 @@ Til denne oppgaven har jeg valgt å bruke [JSearch API ](https://rapidapi.com/le
 
 JSearch av OpenWeb Ninja tilbyr raske og pålitelige jobbsøk ved å samle inn den nyeste jobbinformasjonen og lønnsdataene fra Google for Jobs i sanntid. Den dekker et bredt spekter av store og mindre jobbsider som LinkedIn, Indeed og Glassdoor. Med over 30 datapunkter per jobb og avanserte søke-, spørre- og filtreringsmuligheter, står JSearch frem som det mest omfattende og vedlikeholdte jobb-APIet tilgjengelig, designet for å gi brukere tilgang til en rikholdig samling av jobbmuligheter.
 
-Bruk av API gir tilgang til oppdatert informasjon, økt fleksibilitet, og forbedret skalerbarhet. Dette valget er også mer kostnadseffektivt ved å redusere både utviklings- og driftskostnader, samt akselerere utviklingsprosessen ved å fjerne behovet for å samle, strukturere, og vedlikeholde egen data på front end. Dataene oppdateres i databasen forløpende og hentes fortløpende ved behov.
+Bruk av API gir tilgang til oppdatert informasjon, økt fleksibilitet, og forbedret skalerbarhet. Dette valget er også mer kostnadseffektivt ved å redusere både utviklings- og driftskostnader, samt akselerere utviklingsprosessen ved å fjerne behovet for å samle, strukturere, og vedlikeholde egen data på front end. Dataene oppdateres i databasen forløpende og hentes umiddelbart på frontend ved bruk av API.
 
 ### Bruk av NAV Aksel Design system
 
@@ -86,7 +86,7 @@ Hele applikasjonen er designet slik at den kan brukes på mobile flater. Brekkpu
 
 På landingssiden (Jobs) har jeg har antatt at vi kun viser 4 kolonner i tabellen på på flater tilegnet tablett. På flater tilsvarende mobil, vises kun 2 kolonner i tabellen.
 
-###### Nattmodus
+##### Nattmodus
 
 Det er støtte for å veksle mellom dag- og nattmodus i applikasjonen.
 Design tokens er overstyrt på semantisk og komponentnivå for å oppnå dette. Hele applikasjonen støtter nattmodus.
