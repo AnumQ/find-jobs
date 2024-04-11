@@ -77,7 +77,7 @@ const fetchJobDetailMock = async (): Promise<JobDetail | undefined> => {
     setTimeout(() => {
       const jobDetailMock = jsearch_mock_job_detail as unknown;
       resolve(jobDetailMock as JobDetail);
-    }, 200);
+    }, 1000);
   });
 };
 

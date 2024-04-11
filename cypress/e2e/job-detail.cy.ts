@@ -3,6 +3,8 @@
 describe("Job Detail Page", () => {
   beforeEach(() => {
     cy.visit("http://localhost:5173/");
+    // Simulate waiting for mock data load
+    cy.wait(500);
     // Click the first job link to navigate to the Job Detail page
     cy.get('[data-cy^="job-link"]').first().click();
     // Wait for navigation and subsequent page load
