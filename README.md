@@ -42,11 +42,11 @@ Til denne oppgaven har jeg valgt å bruke [JSearch API ](https://rapidapi.com/le
 
 JSearch av OpenWeb Ninja tilbyr raske og pålitelige jobbsøk ved å samle inn den nyeste jobbinformasjonen og lønnsdataene fra Google for Jobs i sanntid. Den dekker et bredt spekter av store og mindre jobbsider som LinkedIn, Indeed og Glassdoor. Med over 30 datapunkter per jobb og avanserte søke-, spørre- og filtreringsmuligheter, står JSearch frem som det mest omfattende og vedlikeholdte jobb-APIet tilgjengelig, designet for å gi brukere tilgang til en rikholdig samling av jobbmuligheter.
 
-Bruk av API gir tilgang til oppdatert informasjon, økt fleksibilitet, og forbedret skalerbarhet. Dette valget er også mer kostnadseffektivt ved å redusere både utviklings- og driftskostnader, samt akselerere utviklingsprosessen ved å fjerne behovet for å samle, strukturere, og vedlikeholde egen data på front end. Dataene oppdateres i databasen forløpende og hentes umiddelbart på frontend ved bruk av API.
+Bruk av API gir tilgang til oppdatert informasjon, økt fleksibilitet, og forbedret skalerbarhet. Det er mer kostnadseffektivt og reduserer utviklings- og driftskostnader, samt akselererer utviklingsprosessen ved å fjerne behovet for å samle, strukturere, og vedlikeholde egen data på front end. Ny data som oppdateres i en database, hentes umiddelbart på frontend ved bruk av API.
 
 ### Bruk av NAV Aksel Design system
 
-Som ønsket har jeg brukt designsystemet NAV Aksel ved implementering av applikasjonen. Alle farger, ikoner og komponenter i applikasjonen er implementert slik beskrevet i dokumentasjon fra NAV Aksel.
+Som ønsket i oppgaven, har jeg brukt designsystemet NAV Aksel til å designe applikasjonen. Alle farger, ikoner og komponenter i applikasjonen er hentet fra NAV Aksel biblioteket. 
 
 Det finnes 3 nivåer når man bruker designsystemet NAV Aksel. Jeg har brukt alle 3.
 
