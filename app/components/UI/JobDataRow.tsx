@@ -1,4 +1,3 @@
-import React from "react";
 import { Job } from "~/types/Job";
 import { HStack, Table, Link } from "@navikt/ds-react";
 import { Link as RemixLink } from "@remix-run/react";

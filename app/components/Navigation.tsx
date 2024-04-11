@@ -5,7 +5,7 @@ import {
   MenuHamburgerIcon,
   XMarkIcon,
 } from "@navikt/aksel-icons";
-import { HStack, Box, Page, VStack, Button } from "@navikt/ds-react";
+import { HStack, Box, Page, Button } from "@navikt/ds-react";
 import { useGlobalContext } from "~/contexts/GlobalContext";
 import { ReactNode, useState } from "react";
 import "@styles/navbar.scss";
@@ -16,11 +16,8 @@ const ListItem = ({ children }: { children: ReactNode }) => {
 
 export function Navigation() {
   const { toggleDarkMode } = useGlobalContext();
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-
   const closeMenu = () => {
     if (isMenuOpen) {
       toggleMenu();

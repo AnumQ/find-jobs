@@ -1,5 +1,4 @@
 import type { MetaFunction } from "@remix-run/node";
-// import "@styles/faq.css";
 import data from "../data/cv_improvement_tips.json";
 import { Box, ExpansionCard, Page, VStack } from "@navikt/ds-react";
 import "@styles/tips.css";

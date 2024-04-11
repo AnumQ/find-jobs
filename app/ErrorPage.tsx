@@ -1,6 +1,6 @@
 import { BodyShort, Box, Heading, Link, List, Page } from "@navikt/ds-react";
 
-// Error boundary component
+
 export function ErrorPage({ errorMessage }: { errorMessage: string }) {
   return (
     <Page data-aksel-template="404-v2">
