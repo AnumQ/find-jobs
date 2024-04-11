@@ -3,7 +3,7 @@ export const J_SEARCH_API_CONFIG = {
   BASE_URL: "https://jsearch.p.rapidapi.com",
   // API KEY is only put here because it is a test project
   // In real project this API_KEY must be stored securely on a server
-  API_KEY: "2df5147389msh33af5ef6d15e924p1fee1djsn1d5fd582a2df",
+  API_KEY: "3efbc7d6fcmsh42365eb191482d7p18ae70jsn372ed5b56584",
   API_HOST: "jsearch.p.rapidapi.com",
 };
 

@@ -1,9 +1,18 @@
 /// <reference types="cypress" />
 
 describe("Job List", () => {
+  const DEFAULT_QUERY = "frontend norway";
+  const DEFAULT_PAGE = 1;
+
   beforeEach(() => {
     cy.visit("http://localhost:5173/");
-    cy.intercept("GET", "/api/jobs*").as("fetchJobs");
+    // cy.intercept("GET", "/api/jobs*").as("fetchJobs");
+    cy.intercept(
+      "GET",
+      `https://jsearch.p.rapidapi.com/search?query=${encodeURIComponent(
+        DEFAULT_QUERY
+      )}&page=${DEFAULT_PAGE}`
+    ).as("fetchJobs");
   });
 
   it("should display at least 2 rows", () => {
@@ -15,7 +24,13 @@ describe("Job List", () => {
     cy.get('[data-cy="live-mode-switch"]').should("not.be.checked");
 
     // Intercept the API call to ensure it's triggered when live mode is toggled
-    cy.intercept("GET", "**/*").as("jobsRequest");
+    // cy.intercept("GET", "**/*").as("jobsRequest");
+    cy.intercept(
+      "GET",
+      `https://jsearch.p.rapidapi.com/search?query=${encodeURIComponent(
+        DEFAULT_QUERY
+      )}&page=${DEFAULT_PAGE}`
+    ).as("jobsRequest");
 
     // Click the switch to turn on live mode
     cy.get('[data-cy="live-mode-switch"]').click();
