@@ -103,7 +103,7 @@ Det finnes 3 nivåer når man bruker designsystemet NAV Aksel. Jeg har brukt all
 - ExpansionCard.Title
 - ExpansionCard.Content
 
-### Brukervennlighet og universell utforming.
+### Brukervennlighet og universell utforming
 
 Applikasjonen er laget med fokus på brukervennlighet og universell utforming.
 
@@ -117,6 +117,8 @@ Det er støtte for å veksle mellom dag- og nattmodus i applikasjonen.
 Design tokens er overstyrt på semantisk og komponentnivå for å oppnå dette. Hele applikasjonen støtter nattmodus.
 
 #### Antagelser
+
+Det er foretatt følgende antagelser:
 
 **Tabellen på forsiden:**
 
