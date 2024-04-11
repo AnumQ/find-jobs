@@ -117,7 +117,7 @@ Applikasjonen er laget med fokus på brukervennlighet og universell utforming.
 
 Ved bruk av NAV aksel designsystem sørges det for applikasjonens tilgjengeliget for alle automatisk, ettersom NAVs digitale verktøykasse skal være tilgjengelig for alle.
 
-Dog i noen tilfeller, er det behov for tilpasninger. Der har jeg implementert etter retningslinjene fra komponentenes dokumentasjon. Se `advice.tsx` hvor ikoner som bare er til pynt, har satt `aria-hidden="true"`. Samme gjelder ikoner i navigasjonen. Se `Navigation.tsx`. 
+Dog i noen tilfeller, er det behov for tilpasninger. Der har jeg implementert etter retningslinjene fra komponentenes dokumentasjon. Se `advice.tsx` hvor ikoner som bare er til pynt, har satt `aria-hidden="true"`. Samme gjelder ikoner som er wrappet i `Button` elementer i navigasjonen. Se `Navigation.tsx`.
 
 #### Universell utforming
 
