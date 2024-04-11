@@ -18,7 +18,7 @@ npm run dev
 
 ### Instruksjoner for å kjøre tester
 
-Det er laget minst to tester, etter kravet i oppgaven. Den ene testen tester ut alle lenkene i navigasjonsmenyen. De andre testene tester ut funksjonaliteten i listevisning og detaljevisning. 
+Det er laget minst to tester, etter kravet i oppgaven. Den ene testen tester ut alle lenkene i navigasjonsmenyen. De andre testene tester ut funksjonaliteten i listevisning og detaljevisning.
 
 1. Åpne testpakken ved å kjøre
 
@@ -103,23 +103,23 @@ Det finnes 3 nivåer når man bruker designsystemet NAV Aksel. Jeg har brukt all
 - ExpansionCard.Title
 - ExpansionCard.Content
 
-#### Siste kommentarer
+### Brukervennlighet og universell utforming.
 
 Applikasjonen er laget med fokus på brukervennlighet og universell utforming.
 
-##### Universell utforming
+#### Universell utforming
 
 Hele applikasjonen er designet slik at den kan brukes på mobile flater. Brekkpunkter er hentet fra NAV designsystem.
 
-###### Antagelser
+##### Nattmodus
+
+Det er støtte for å veksle mellom dag- og nattmodus i applikasjonen.
+Design tokens er overstyrt på semantisk og komponentnivå for å oppnå dette. Hele applikasjonen støtter nattmodus.
+
+#### Antagelser
 
 **Tabellen på forsiden:**
 
 - Kun 4 kolonner i tabellen skal vises på flater tilegnet tablett.
 - Kun 2 kolonner i tabellen skal vises på flater tilsvarende mobil.
 - Kun fire sider av tabell data er tilgjengelig. Pagineringstall er satt til 4.
-
-##### Nattmodus
-
-Det er støtte for å veksle mellom dag- og nattmodus i applikasjonen.
-Design tokens er overstyrt på semantisk og komponentnivå for å oppnå dette. Hele applikasjonen støtter nattmodus.
