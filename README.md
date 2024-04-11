@@ -18,7 +18,9 @@ npm run dev
 
 ### Instruksjoner for å kjøre tester
 
-1. Open the test testpakken ved å kjøre
+Det er laget minst 2 tester, etter kravet i oppgaven. Den ene testen tester ut alle lenkene i meny-en. 
+
+1. Åpne test testpakken ved å kjøre
 
 ```sh
 npx cypress open
