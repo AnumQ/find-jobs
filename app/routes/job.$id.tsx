@@ -11,14 +11,14 @@ import {
   BodyLong,
   List,
 } from "@navikt/ds-react";
-import type { LoaderFunctionArgs } from "@remix-run/node";
+import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import { fetchJobDetail } from "~/api/jsearch";
-import { JSearchJob } from "~/types/Job";
+import { fetchJobDetail } from "~/api/J_SEARCH/jobsApi";
+import { JSearchJobDetail } from "~/types/Job";
+import { getMeta, truncateText } from "~/utils/utils";
 
-// TODO:
-// add meta function
+export const meta: MetaFunction = () => getMeta("Job Detail");
 
 export const loader = async ({ request, params }: LoaderFunctionArgs) => {
   const url = new URL(request.url);
@@ -33,12 +33,12 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
     throw new Response("Not Found", { status: 404 });
   }
 
-  return json({ job: res as unknown as JSearchJob });
+  return json({ job: res as unknown as JSearchJobDetail });
 };
 
-export default function JSearchJobDetail() {
+export default function JobDetail() {
   const { job } = useLoaderData<typeof loader>();
-  // console.log(job);
+  console.log(job);
   return (
     <Page.Block as="main" className="about" width="md">
       <Box padding={{ xs: "3", sm: "4", md: "6", lg: "5" }}>
@@ -99,8 +99,4 @@ export default function JSearchJobDetail() {
       </Box>
     </Page.Block>
   );
-}
-
-function truncateText(text: string, limit = 670): string {
-  return text.length > limit ? text.substring(0, limit) + "..." : text;
 }

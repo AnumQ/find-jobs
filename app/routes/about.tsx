@@ -2,7 +2,7 @@ import type { MetaFunction } from "@remix-run/node";
 import { BodyShort, Box, Heading, Link, Page, VStack } from "@navikt/ds-react";
 import { getMeta } from "~/utils/utils";
 
-export const meta: MetaFunction = () => getMeta("About | Find Your Next Job");
+export const meta: MetaFunction = () => getMeta("About");
 
 export default function About() {
   return (

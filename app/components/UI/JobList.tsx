@@ -38,6 +38,7 @@ const JobList: React.FC<JobListProps> = ({ jobs, pageState, onPageChange }) => {
                   job_employment_type,
                   job_city,
                   job_publisher,
+                  employer_logo,
                 },
                 i
               ) => {
@@ -49,7 +50,19 @@ const JobList: React.FC<JobListProps> = ({ jobs, pageState, onPageChange }) => {
                       </Link>
                     </Table.HeaderCell>
 
-                    <Table.DataCell>{employer_name}</Table.DataCell>
+                    <Table.DataCell>
+                      <HStack gap="2">
+                        {employer_name}
+
+                        {employer_logo && (
+                          <img
+                            width={20}
+                            src={employer_logo}
+                            alt="employer logo"
+                          />
+                        )}
+                      </HStack>
+                    </Table.DataCell>
                     <Table.DataCell>{job_city}</Table.DataCell>
                     <Table.DataCell>{job_employment_type}</Table.DataCell>
                     <Table.DataCell>{job_publisher}</Table.DataCell>

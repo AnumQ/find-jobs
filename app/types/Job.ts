@@ -1,19 +1,3 @@
-export type FindWorkJob = {
-  company_name: string;
-  company_num_employees?: number | null;
-  date_posted: string; // Date string in ISO 8601 format
-  employment_type: string;
-  id: string;
-  keywords: string[];
-  location?: string | null;
-  logo: string;
-  remote: boolean;
-  role: string;
-  source: string;
-  text: string;
-  url?: string;
-};
-
 export type JSearchJob = {
   employer_name: string;
   employer_logo: string;
@@ -95,10 +79,7 @@ export type JSearchJobDetail = {
   job_country: string;
   job_latitude: number;
   job_longitude: number;
-  job_benefits: null;
   job_google_link: string;
-  job_offer_expiration_datetime_utc: null;
-  job_offer_expiration_timestamp: null;
   job_required_experience: {
     no_experience_required: boolean;
     required_experience_in_months: number;
@@ -117,22 +98,19 @@ export type JSearchJobDetail = {
     professional_certification_mentioned: boolean;
   };
   job_experience_in_place_of_education: boolean;
-  job_min_salary: null;
-  job_max_salary: null;
-  job_salary_currency: null;
-  job_salary_period: null;
+  job_min_salary: Salary | null;
+  job_max_salary: Salary | null;
   job_highlights: {
     Qualifications: string[];
   };
-  job_job_title: null;
   job_posting_language: string;
   job_onet_soc: string;
   job_onet_job_zone: string;
   job_occupational_categories: string[];
   job_naics_code: string;
   job_naics_name: string;
-  estimated_salaries: any[];
-  apply_options: any[];
+  estimated_salaries: Salary[];
+  apply_options: APPLY_OPTION[];
   employer_reviews: {
     publisher: string;
     employer_name: string;
@@ -142,4 +120,20 @@ export type JSearchJobDetail = {
     max_score: number;
     reviews_link: string;
   }[];
+};
+
+type APPLY_OPTION = {
+  apply_link: string;
+  is_direct: boolean;
+  publisher: string;
+};
+
+type Salary = {
+  job_title: string;
+  location: string;
+  max_salary: number;
+  median_salary: number;
+  publisher_link: string;
+  salary_currency: string;
+  salary_period: string;
 };

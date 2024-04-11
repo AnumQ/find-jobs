@@ -1,25 +1,12 @@
-import { JSearchJob, JSearchJobDetail } from "../types/Job";
-import jsearch_mock_jobs_list from "../data/jsearch_jobs_list.json";
-import jsearch_mock_job_detail from "../data/jsearch_job_detail.json";
-
-// J_SEARCH API Config
-const J_SEARCH_API_CONFIG = {
-  BASE_URL: "https://jsearch.p.rapidapi.com",
-  // API KEY is only put here because it is a test project
-  // In real project this API_KEY is stored securely on a server
-  API_KEY: "5e85830115msha85693e71c0ecddp1c2381jsn3c44ca65b630",
-  API_HOST: "jsearch.p.rapidapi.com",
-};
-
-const headers = {
-  "x-rapidapi-key": J_SEARCH_API_CONFIG.API_KEY,
-  "x-rapidapi-host": J_SEARCH_API_CONFIG.API_HOST,
-};
+import { JSearchJob, JSearchJobDetail } from "../../types/Job";
+import jsearch_mock_jobs_list from "../../data/jsearch_jobs_list.json";
+import jsearch_mock_job_detail from "../../data/jsearch_job_detail.json";
+import { J_SEARCH_API_CONFIG, options } from "./config";
 
 export type FETCH_JOBS_RESULT = {
   data: JSearchJob[];
-  //The RapidAPI JSearch API has limit on maximum requests on the FREE version
-  //We wish to display this number on screen so we have an idea.
+  //RapidAPI JSearch API has limit on maximum requests on the FREE version
+  //We wish to display this number on screen so we know how many requests we have laft
   numReq: string; // number of remaining requests
 };
 
@@ -33,15 +20,9 @@ const fetchJobsFromLive = async (
     const encodedQuery = encodeURIComponent(query);
     const encodedPage = encodeURIComponent(page);
 
-    console.log(
-      `Fetching: ${apiUrl}?query=${encodedQuery}&page=${encodedPage}`
-    );
     const response = await fetch(
       `${apiUrl}?query=${encodedQuery}&page=${encodedPage}`,
-      {
-        method: "GET",
-        headers: headers,
-      }
+      options
     );
 
     if (!response.ok) {
@@ -72,10 +53,7 @@ export const fetchJobDetailLive = async (
   const apiUrl = `${J_SEARCH_API_CONFIG.BASE_URL}/job-details`;
 
   try {
-    const response = await fetch(`${apiUrl}?job_id=${job_id}`, {
-      method: "GET",
-      headers: headers,
-    });
+    const response = await fetch(`${apiUrl}?job_id=${job_id}`, options);
 
     if (!response.ok) {
       if (response.status === 429) {
@@ -107,11 +85,6 @@ export const fetchJobDetail = async (
   job_id: string,
   isLiveMode = false
 ): Promise<JSearchJobDetail | undefined> => {
-  console.log(
-    `Fetching job details from backend. Fetching ${
-      isLiveMode ? "live" : "mock"
-    }`
-  );
   if (!isLiveMode) {
     return await fetchJobDetailMock();
   } else {
@@ -124,9 +97,6 @@ export const fetchJobs = async (
   page: number,
   isLiveMode = false
 ): Promise<FETCH_JOBS_RESULT> => {
-  console.log(
-    `Fetching jobs from backend. Returning ${isLiveMode ? "live" : "mock"}`
-  );
   if (!isLiveMode) {
     const data = await fetchJobsFromMock();
     return { numReq: "", data: data };
