@@ -18,9 +18,9 @@ npm run dev
 
 ### Instruksjoner for å kjøre tester
 
-Det er laget minst 2 tester, etter kravet i oppgaven. Den ene testen tester ut alle lenkene i meny-en. 
+Det er laget minst to tester, etter kravet i oppgaven. Den ene testen tester ut alle lenkene i meny-en.
 
-1. Åpne test testpakken ved å kjøre
+1. Åpne testpakken ved å kjøre
 
 ```sh
 npx cypress open
@@ -30,35 +30,35 @@ npx cypress open
 
 3. Velg en nettleser og klikk `Start E2E Testing`. Et nytt nettleservindu åpnes.
 
-4. Velg `Specs` fra sidepanel. Du bør nå se en liste over tester som hovedinnhold.
+4. Velg `Specs` fra sidepanel. En liste over tester vises i hovedinnholdet.
 
 5. Velg en test, for eksempel `navigation.cy.ts`. Testen kjøres automatisk.
 
 ## Funksjonalitet
 
 1. Listevisning
-Applikasjonen viser en liste med jobbutlysninger. 
+   Applikasjonen viser en liste med jobbutlysninger.
 
 2. Detaljevisning
-Når man klikker på et element i listen, blir brukeren ført til detaljevisning av elementet. 
+   Klikk på et element i listen, fører brukeren til en detaljert visning av det valgte elementet.
 
 3. Navigasjon
-Brukeren kan navigere til forskjellige sider ved å klikke på lenker i navigasjonen
+   Brukeren kan navigere til forskjellige sider ved å klikke på lenker i navigasjonen.
 
 4. Integrasjon med API
-Applikasjonen er integrert med ekstern API. Dette API-et har en maks grense på antall tillate forespørsler før man må bytte om til en betalt abonnoment. Av den grunn er standard konfigurert til å bruke test data for å ikke overskride denne grensen. 
+   Applikasjonen er integrert med et eksternt API. Dette API-et har en maksimal grense for antall tillatte forespørsler på ubetalt abonnement. Av den grunn er standard konfigurert til å bruke test data for å ikke overskride denne grensen.
 
-For å hente data fra API-et er det bare å skru på bryteren `Use live data` på forsiden. Du skal da også se hvor mange forespørsler du har igjen. Hvis du går tom for forespørsler, er det bare å ta kontakt med Anum. 
+For å hente data fra API-et, aktiver Use live data-bryteren på forsiden. Applikasjonen viser hvor mange tillatte forespørsler som gjenstår. Hvis du går tom for forespørsler, vennligst kontakt Anum.
 
 5. Natt modus
-Brukeren kan veksle mellom dag- og nattmodus ved å klikke på ikonet i navigasjonsmeny-en. 
+   Brukeren kan veksle mellom dag- og nattmodus ved å klikke på ikonet i navigasjonsmeny-en.
 
 6. Støtte for mobile flater
-Applikasjonen støtter alle flater. Mer informajon om dette kan du lese om lenger ned. 
+   Applikasjonen støtter alle flater. Mer informasjon om dette finner du lenger ned.
 
 ## Dokumentasjon på valg av API
 
-Det dukker det nye jobbutlysninger på ulike plattformer som blir utfylt løpende. Det er derfor viktig å hente data fra API som har denne oppdateringen uten at vi trenger å oppdatere frontend applikasjonen på ny hver gang dataen endrer seg.
+Jobbutlysninger dukker opp på ulike plattformer og blir utfylt løpende. Det er derfor viktig å hente data fra API som har denne oppdateringen uten at vi trenger å oppdatere frontend applikasjonen på ny hver gang dataen endrer seg.
 
 Til denne oppgaven har jeg valgt å bruke [JSearch API ](https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch) fra Rapid API.
 
@@ -68,13 +68,13 @@ Bruk av API gir tilgang til oppdatert informasjon, økt fleksibilitet, og forbed
 
 ### Bruk av NAV Aksel Design system
 
-Som ønsket i oppgaven, har jeg brukt designsystemet NAV Aksel til å designe applikasjonen. Alle farger, ikoner og komponenter i applikasjonen er hentet fra NAV Aksel biblioteket. 
+Som ønsket i oppgaven, har jeg brukt designsystemet NAV Aksel til å designe applikasjonen. Alle farger, ikoner og komponenter i applikasjonen er hentet fra NAV Aksel biblioteket.
 
 Det finnes 3 nivåer når man bruker designsystemet NAV Aksel. Jeg har brukt alle 3.
 
 1. Nivå 1 er design tokens. De er brukt i alle scss filer. Se `_index.scss` for eksempel.
 2. Nivå 2 er komponenter. Disse er brukt i flere komponent filer. Se `JobList.tsx` for eksempel.
-3. Nivå 3 er mal. Jeg har brukt en mal som heter [404 Mal](https://aksel.nav.no/monster-maler/maler/404-side) fra designsystemt. Denne er brukt i `ErrorPage.tsx` og vises når brukeren prøver å gå til en lenke som er ødelagt/ikke finnes.
+3. Nivå 3 er mal. Jeg har brukt en mal som heter [404 Mal](https://aksel.nav.no/monster-maler/maler/404-side) fra designsystemet. Denne er brukt i `ErrorPage.tsx` og vises når brukeren prøver å gå til en lenke som er ødelagt/ikke finnes.
 
 #### Liste over komponenter som er brukt i applikasjonen:
 

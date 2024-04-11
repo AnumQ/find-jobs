@@ -14,17 +14,9 @@ import {
   PencilIcon,
   TrendUpIcon,
 } from "@navikt/aksel-icons";
+import { getMeta } from "~/utils/utils";
 
-export const meta: MetaFunction = () => {
-  return [
-    { title: "Advice for Job Seeker | Find Your Next Job" },
-    {
-      name: "description",
-      content:
-        "Find you next job easily, search fast through jobs posted on linkedln, google etc.",
-    },
-  ];
-};
+export const meta: MetaFunction = () => getMeta("Advice for Job Seeker");
 
 export default function Advice() {
   return (

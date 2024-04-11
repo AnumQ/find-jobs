@@ -9,17 +9,9 @@ import {
   Page,
   VStack,
 } from "@navikt/ds-react";
+import { getMeta } from "~/utils/utils";
 
-export const meta: MetaFunction = () => {
-  return [
-    { title: "FAQ for Job Seeker | Find Your Next Job" },
-    {
-      name: "description",
-      content:
-        "Find you next job easily, search fast through jobs posted on linkedln, google etc.",
-    },
-  ];
-};
+export const meta: MetaFunction = () => getMeta("FAQ for Job Seeker");
 
 export default function FAQ() {
   return (
