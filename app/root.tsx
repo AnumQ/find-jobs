@@ -6,7 +6,7 @@ import {
   ScrollRestoration,
   useRouteError,
 } from "@remix-run/react";
-import { Navigation } from "./components/Navigation";
+import { Navigation } from "./components/layout/Navigation";
 import "@navikt/ds-css";
 import { Page } from "@navikt/ds-react";
 import {
@@ -14,8 +14,8 @@ import {
   useGlobalContext,
 } from "./contexts/GlobalContext";
 import "@styles/_index.scss";
-import { Footer } from "./Footer";
-import { ErrorPage } from "./ErrorPage";
+import { Footer } from "./components/layout/Footer";
+import { ErrorPage } from "./components/error/ErrorPage";
 
 export function ErrorBoundary() {
   const error = useRouteError();
