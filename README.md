@@ -66,15 +66,18 @@ JSearch av OpenWeb Ninja tilbyr raske og pålitelige jobbsøk ved å samle inn d
 
 Bruk av API gir tilgang til oppdatert informasjon, økt fleksibilitet, og forbedret skalerbarhet. Det er mer kostnadseffektivt og reduserer utviklings- og driftskostnader, samt akselererer utviklingsprosessen ved å fjerne behovet for å samle, strukturere, og vedlikeholde egen data på front end. Ny data som oppdateres i en database, hentes umiddelbart på frontend ved bruk av API.
 
-### Bruk av NAV Aksel Design system
+### Design valg - NAV Aksel Design system
 
-Som ønsket i oppgaven, har jeg brukt designsystemet NAV Aksel til å designe applikasjonen. Alle farger, ikoner og komponenter i applikasjonen er hentet fra NAV Aksel biblioteket.
+Som ønsket i oppgaven, har jeg brukt designsystemet NAV Aksel i applikasjonen. Alle farger, ikoner og komponenter i applikasjonen er fra NAV Aksel biblioteket.
 
-Det finnes 3 nivåer når man bruker designsystemet NAV Aksel. Jeg har brukt alle 3.
+Det finnes tre nivåer når man bruker designsystemet NAV Aksel. Jeg har brukt alle tre.
 
 1. Nivå 1 er design tokens. De er brukt i alle scss filer. Se `_index.scss` for eksempel.
 2. Nivå 2 er komponenter. Disse er brukt i flere komponent filer. Se `JobList.tsx` for eksempel.
 3. Nivå 3 er mal. Jeg har brukt en mal som heter [404 Mal](https://aksel.nav.no/monster-maler/maler/404-side) fra designsystemet. Denne er brukt i `ErrorPage.tsx` og vises når brukeren prøver å gå til en lenke som er ødelagt/ikke finnes.
+
+I dokumentasjonen til designsystemt er det forklart egnet og uegnet bruk av kompononent. Dette er tatt hensyn til i applikasjonen. Accordion er et komponent som er egnet til en liste med ofte stilte spørsmål. Det er derfor Accordion er brukt til å fremvise data på `/faq` siden.
+En annen komponent jeg har implementert er ExpansionCard. Denne kan ses på `/tips` siden.
 
 #### Liste over komponenter fra NAV Aksel som er brukt i applikasjonen:
 
@@ -92,6 +95,7 @@ Det finnes 3 nivåer når man bruker designsystemet NAV Aksel. Jeg har brukt all
 - HelpText
 - Button
 - Link
+- List
 - Heading
 - BodyShort
 - Accordion
@@ -109,7 +113,7 @@ Applikasjonen er laget med fokus på brukervennlighet og universell utforming.
 
 #### Universell utforming
 
-Hele applikasjonen er designet slik at den kan brukes på mobile flater. Brekkpunkter er hentet fra NAV designsystem.
+Hele applikasjonen er designet slik at den kan brukes på mobile flater. Brekkpunkter er hentet fra NAV Aksel designsystem.
 
 ##### Nattmodus
 
@@ -118,7 +122,8 @@ Design tokens er overstyrt på semantisk og komponentnivå for å oppnå dette. 
 
 #### Antagelser
 
-Det er foretatt følgende antagelser. Disse gjelder tabellen (listevisningen) på forsiden: 
+Det er foretatt følgende antagelser. Disse gjelder tabellen (listevisningen) på forsiden:
+
 - Kun 4 kolonner i tabellen skal vises på flater tilegnet tablett.
 - Kun 2 kolonner i tabellen skal vises på flater tilsvarende mobil.
 - Kun fire sider av tabell data er tilgjengelig. Pagineringstall er satt til 4.
