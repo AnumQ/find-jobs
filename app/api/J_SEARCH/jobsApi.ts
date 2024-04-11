@@ -10,6 +10,19 @@ export type FETCH_JOBS_RESULT = {
   numReq: string; // number of remaining requests
 };
 
+export const fetchJobs = async (
+  query: string,
+  page: number,
+  isLiveMode = false
+): Promise<FETCH_JOBS_RESULT> => {
+  if (!isLiveMode) {
+    const data = await fetchJobsFromMock();
+    return { numReq: "", data: data };
+  } else {
+    return await fetchJobsFromLive(query, page);
+  }
+};
+
 const fetchJobsFromLive = async (
   query: string,
   page: number
@@ -71,16 +84,6 @@ export const fetchJobDetailLive = async (
   }
 };
 
-const fetchJobDetailMock = async (): Promise<JobDetail | undefined> => {
-  return new Promise((resolve) => {
-    // To simulate a real call, we return the mock with 200 ms delay
-    setTimeout(() => {
-      const jobDetailMock = jsearch_mock_job_detail as unknown;
-      resolve(jobDetailMock as JobDetail);
-    }, 200);
-  });
-};
-
 export const fetchJobDetail = async (
   job_id: string,
   isLiveMode = false
@@ -92,17 +95,14 @@ export const fetchJobDetail = async (
   }
 };
 
-export const fetchJobs = async (
-  query: string,
-  page: number,
-  isLiveMode = false
-): Promise<FETCH_JOBS_RESULT> => {
-  if (!isLiveMode) {
-    const data = await fetchJobsFromMock();
-    return { numReq: "", data: data };
-  } else {
-    return await fetchJobsFromLive(query, page);
-  }
+const fetchJobDetailMock = async (): Promise<JobDetail | undefined> => {
+  return new Promise((resolve) => {
+    // To simulate a real call, we return the mock with 200 ms delay
+    setTimeout(() => {
+      const jobDetailMock = jsearch_mock_job_detail as unknown;
+      resolve(jobDetailMock as JobDetail);
+    }, 200);
+  });
 };
 
 const fetchJobsFromMock = async (): Promise<Job[]> => {
