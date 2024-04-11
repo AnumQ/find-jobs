@@ -29,17 +29,10 @@ export function ErrorBoundary() {
 
 const Body = ({ children }: { children: React.ReactNode }) => {
   const { isDarkMode } = useGlobalContext();
-  const style = {
-    backgroundColor: isDarkMode
-      ? "var(--a-surface-inverted)"
-      : "var(--a-surface-default)",
-  };
+
   return (
     <body data-theme={!isDarkMode ? "light" : "dark"}>
-      <Page
-        // style={style} // in order to override the inline style - Page is still in experimental mode.
-        footer={<Footer />}
-      >
+      <Page footer={<Footer />}>
         <Page.Block>
           <Navigation />
         </Page.Block>

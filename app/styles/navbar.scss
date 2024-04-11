@@ -29,8 +29,7 @@ nav.navbar {
 
   .right-menu {
     .list-item {
-      padding-top: 0;
-      padding-bottom: 0;
+      padding: 0;
     }
   }
 }
@@ -49,6 +48,7 @@ nav.navbar {
     padding: 0;
 
     ul.nav-bar-ul {
+      background-color: var(--a-surface-subtle);
       position: absolute;
       width: 100%;
       z-index: var(--a-z-index-tooltip);

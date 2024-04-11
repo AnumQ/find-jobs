@@ -14,14 +14,6 @@ Run the Vite dev server:
 npm run dev
 ```
 
-## Deployment
-
-First, build your app for production:
-
-```sh
-npm run build
-```
-
 ## Tests
 
 1. Open the test suite by running
@@ -82,14 +74,19 @@ Det finnes 3 nivåer når man bruker designsystemet NAV Aksel. Jeg har brukt all
 - ExpansionCard.Title
 - ExpansionCard.Content
 
-#### Andre kommentarer
+#### Siste kommentarer
 
 Applikasjonen er laget med fokus på brukervennlighet og universell utforming.
 
-#### Universell utforming
+##### Universell utforming
 
-Hele applikasjonen er designet slik at den kan brukes på mobile flater.
+Hele applikasjonen er designet slik at den kan brukes på mobile flater. Brekkpunkter er hentet fra NAV designsystem.
 
-##### Antagelser
+###### Antagelser
 
-På landingssiden (Jobs) har jeg har antatt at vi kun viser 4 kolonner i tabellen på på flater tilegnet tablett. På flater tilsvarende mobil, vises kun 2 kolonner.
+På landingssiden (Jobs) har jeg har antatt at vi kun viser 4 kolonner i tabellen på på flater tilegnet tablett. På flater tilsvarende mobil, vises kun 2 kolonner i tabellen.
+
+###### Nattmodus
+
+Det er støtte for å veksle mellom dag- og nattmodus i applikasjonen.
+Design tokens er overstyrt på semantisk og komponentnivå for å oppnå dette. Hele applikasjonen støtter nattmodus.

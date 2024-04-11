@@ -4,28 +4,40 @@
 
 [data-theme="light"] {
   --ac-help-text-popover-bg: var(--a-blue-100);
-  // Pagination
-  --ac-pagination-selected-bg: var(--a-blue-500);
 }
 
 [data-theme="dark"] {
   --a-bg-default: var(--a-surface-inverted);
   --a-surface-subtle: var(--a-surface-inverted);
-  --a-surface-default: var(--a-surface-inverted);
   --a-border-subtle: var(--a-border-on-inverted-subtle);
   --a-text-subtle: var(--a-text-on-invert);
   --a-border-default: var(--a-border-on-inverted);
+  --a-border-divider: var(--a-border-on-inverted-subtle);
   --a-border-strong: var(--a-gray-400);
   --a-surface-neutral-moderate: var(--a-gray-800);
+
+  // table
+  --ac-table-row-hover: var(--a-surface-inverted-hover);
+
+  // Expansion
+  --ac-expansioncard-bg: var(--a-surface-inverted);
+  --ac-expansioncard-border-color: var(--a-border-on-inverted-subtle);
+  --ac-expansioncard-border-open-color: var(--a-border-on-inverted-subtle);
 
   // Popover
   --ac-help-text-popover-bg: var(--a-surface-inverted-active); // popover
   --a-border-info: var(--a-border-on-inverted-subtle);
+
+  // Surface Action
   --a-surface-action-active: var(--a-surface-inverted-active);
   --a-surface-action-subtle-hover: var(--a-surface-inverted-hover);
+  --a-surface-action: var(--a-text-on-action);
+
+  // Text
   --a-text-action-on-action-subtle: var(--a-text-on-inverted);
   --a-text-default: var(--a-text-on-invert);
-  --a-surface-action: var(--a-text-on-action);
+
+  // Pagination
   --ac-pagination-selected-bg: var(--a-gray-800);
 
   // Switch

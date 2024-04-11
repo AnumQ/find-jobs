@@ -44,7 +44,7 @@ export function Navigation() {
         </HStack>
         <Box as="ul" className={`${"nav-bar-ul"} ${isMenuOpen ? "open" : ""}`}>
           <HStack
-            gap={"5"}
+            gap={{ xs: "2", sm: "3", md: "4", lg: "5" }}
             justify={"space-between"}
             className={"menu-stack"}
             align={"center"}
