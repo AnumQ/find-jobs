@@ -1,13 +1,13 @@
 // app/components/JobList.tsx
 import React from "react";
-import { JSearchJob } from "~/types/Job";
-import { Link } from "@remix-run/react";
+import { Job } from "~/types/Job";
 import { HStack, Table, VStack, Pagination, Box } from "@navikt/ds-react";
 import { useGlobalContext } from "~/contexts/GlobalContext";
 import "@styles/joblist.scss";
+import { JobDataRow } from "./JobDataRow";
 interface JobListProps {
   isLoading: boolean;
-  jobs: JSearchJob[];
+  jobs: Job[];
   pageState: number;
   setPageState: React.Dispatch<React.SetStateAction<number>>;
   onPageChange: (page: number) => void;
@@ -29,47 +29,14 @@ const JobList: React.FC<JobListProps> = ({ jobs, pageState, onPageChange }) => {
             </Table.Row>
           </Table.Header>
           <Table.Body data-cy="job-list">
-            {jobs.map(
-              (
-                {
-                  job_id,
-                  job_title,
-                  employer_name,
-                  job_employment_type,
-                  job_city,
-                  job_publisher,
-                  employer_logo,
-                },
-                i
-              ) => {
-                return (
-                  <Table.Row key={i + job_id}>
-                    <Table.HeaderCell scope="row">
-                      <Link to={`job/${job_id}?isLiveMode=${isLiveMode}`}>
-                        {job_title}
-                      </Link>
-                    </Table.HeaderCell>
-
-                    <Table.DataCell>
-                      <HStack gap="2">
-                        {employer_name}
-
-                        {employer_logo && (
-                          <img
-                            width={20}
-                            src={employer_logo}
-                            alt="employer logo"
-                          />
-                        )}
-                      </HStack>
-                    </Table.DataCell>
-                    <Table.DataCell>{job_city}</Table.DataCell>
-                    <Table.DataCell>{job_employment_type}</Table.DataCell>
-                    <Table.DataCell>{job_publisher}</Table.DataCell>
-                  </Table.Row>
-                );
-              }
-            )}
+            {jobs.map((job, i) => (
+              <JobDataRow
+                key={i}
+                job={job}
+                isLiveMode={isLiveMode}
+                rowIndex={i}
+              />
+            ))}
           </Table.Body>
         </Table>
       </Box>
@@ -78,7 +45,7 @@ const JobList: React.FC<JobListProps> = ({ jobs, pageState, onPageChange }) => {
           size="small"
           page={pageState}
           onPageChange={(page) => onPageChange(page)}
-          count={3} // hard coded since we don't know the total number of result and  this is only a test project
+          count={4} // hard coded since we don't know the total number of result and this is only a test project
           boundaryCount={1}
           siblingCount={1}
         />

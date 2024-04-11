@@ -15,7 +15,7 @@ import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { fetchJobDetail } from "~/api/J_SEARCH/jobsApi";
-import { JSearchJobDetail } from "~/types/Job";
+import { JobDetail } from "~/types/Job";
 import { getMeta, truncateText } from "~/utils/utils";
 
 export const meta: MetaFunction = () => getMeta("Job Detail");
@@ -33,7 +33,7 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
     throw new Response("Not Found", { status: 404 });
   }
 
-  return json({ job: res as unknown as JSearchJobDetail });
+  return json({ job: res as unknown as JobDetail });
 };
 
 export default function JobDetail() {

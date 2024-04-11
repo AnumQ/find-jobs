@@ -47,6 +47,7 @@ export default function Advice() {
           <VStack gap="4" as="article">
             <HStack align="center" gap="1">
               <LightBulbIcon
+                aria-hidden
                 title="Top Resume Tips to Stand Out"
                 fontSize={"1.5rem"}
               />
@@ -71,10 +72,10 @@ export default function Advice() {
           <VStack as="article" gap="4">
             <HStack align="center" gap="1">
               <PencilIcon
+                aria-hidden
                 title="How to Prepare for an Interview"
                 fontSize="1.5rem"
               />
-
               <Heading size="medium" level="2">
                 How to Prepare for an Interview
               </Heading>
@@ -94,10 +95,10 @@ export default function Advice() {
           <VStack as="article" gap="4">
             <HStack align="center" gap="1">
               <HandshakeIcon
+                aria-hidden
                 title="Effective Networking Strategies"
                 fontSize="1.5rem"
               />
-
               <Heading size="medium" level="2">
                 Effective Networking Strategies
               </Heading>
@@ -114,10 +115,10 @@ export default function Advice() {
               only.
             </BodyShort>
           </VStack>
-
           <VStack as="article" gap="4">
             <HStack align="center" gap="1">
               <Chat2Icon
+                aria-hidden
                 title="Negotiating Salaries: Do's and Don'ts"
                 fontSize="1.5rem"
               />
@@ -141,10 +142,10 @@ export default function Advice() {
           <VStack as="article" gap="4">
             <HStack align="center" gap="1">
               <TrendUpIcon
+                aria-hidden
                 title="Strategies for Career Advancement"
                 fontSize="1.5rem"
               />
-
               <Heading size="medium" level="2">
                 Strategies for Career Advancement
               </Heading>

@@ -14,7 +14,7 @@ import {
 } from "@navikt/ds-react";
 import JobList from "~/components/UI/JobList";
 import { useCallback, useState } from "react";
-import { JSearchJob } from "~/types/Job";
+import { Job } from "~/types/Job";
 import { useGlobalContext } from "~/contexts/GlobalContext";
 
 export const meta: MetaFunction = () => {
@@ -59,8 +59,8 @@ const SkeletonView = () => {
   );
 };
 
-const JobListView = ({ jobs }: { jobs: JSearchJob[] }) => {
-  const [pageResults, setPageResults] = useState<JSearchJob[]>(jobs);
+const JobListView = ({ jobs }: { jobs: Job[] }) => {
+  const [pageResults, setPageResults] = useState<Job[]>(jobs);
   const [pageState, setPageState] = useState(1); // initial page state
   const [isLoading, setIsLoading] = useState(false);
   const { isLiveMode, toggleLiveMode } = useGlobalContext();

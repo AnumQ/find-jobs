@@ -1,10 +1,10 @@
-import { JSearchJob, JSearchJobDetail } from "../../types/Job";
+import { Job, JobDetail } from "../../types/Job";
 import jsearch_mock_jobs_list from "../../data/jsearch_jobs_list.json";
 import jsearch_mock_job_detail from "../../data/jsearch_job_detail.json";
 import { J_SEARCH_API_CONFIG, options } from "./config";
 
 export type FETCH_JOBS_RESULT = {
-  data: JSearchJob[];
+  data: Job[];
   //RapidAPI JSearch API has limit on maximum requests on the FREE version
   //We wish to display this number on screen so we know how many requests we have laft
   numReq: string; // number of remaining requests
@@ -49,7 +49,7 @@ const fetchJobsFromLive = async (
 
 export const fetchJobDetailLive = async (
   job_id: string
-): Promise<JSearchJobDetail | undefined> => {
+): Promise<JobDetail | undefined> => {
   const apiUrl = `${J_SEARCH_API_CONFIG.BASE_URL}/job-details`;
 
   try {
@@ -71,12 +71,12 @@ export const fetchJobDetailLive = async (
   }
 };
 
-const fetchJobDetailMock = async (): Promise<JSearchJobDetail | undefined> => {
+const fetchJobDetailMock = async (): Promise<JobDetail | undefined> => {
   return new Promise((resolve) => {
     // To simulate a real call, we return the mock with 200 ms delay
     setTimeout(() => {
       const jobDetailMock = jsearch_mock_job_detail as unknown;
-      resolve(jobDetailMock as JSearchJobDetail);
+      resolve(jobDetailMock as JobDetail);
     }, 200);
   });
 };
@@ -84,7 +84,7 @@ const fetchJobDetailMock = async (): Promise<JSearchJobDetail | undefined> => {
 export const fetchJobDetail = async (
   job_id: string,
   isLiveMode = false
-): Promise<JSearchJobDetail | undefined> => {
+): Promise<JobDetail | undefined> => {
   if (!isLiveMode) {
     return await fetchJobDetailMock();
   } else {
@@ -105,10 +105,10 @@ export const fetchJobs = async (
   }
 };
 
-const fetchJobsFromMock = async (): Promise<JSearchJob[]> => {
+const fetchJobsFromMock = async (): Promise<Job[]> => {
   return new Promise((resolve) => {
     const jobL = jsearch_mock_jobs_list;
-    const jobs: JSearchJob[] = jobL as unknown as JSearchJob[];
+    const jobs: Job[] = jobL as unknown as Job[];
     setTimeout(() => {
       resolve(jobs);
     }, 200);

@@ -5,7 +5,7 @@ import {
   MenuHamburgerIcon,
   XMarkIcon,
 } from "@navikt/aksel-icons";
-import { HStack, Box, Page } from "@navikt/ds-react";
+import { HStack, Box, Page, VStack, Button } from "@navikt/ds-react";
 import { useGlobalContext } from "~/contexts/GlobalContext";
 import { ReactNode, useState } from "react";
 import "@styles/navbar.scss";
@@ -29,27 +29,29 @@ export function Navigation() {
   return (
     <Box as="nav" id="nav" className={"navbar"}>
       <Page.Block>
-        <div className={"navbar-mobile"}>
-          <HStack justify="start">
-            <button className={"menu-button"} onClick={toggleMenu}>
-              {!isMenuOpen ? (
-                <MenuHamburgerIcon
-                  className={"hamburger-menu-icon"}
-                  title="menu"
-                  fontSize="1.5rem"
-                />
+        <HStack className={"navbar-mobile"} justify="start">
+          <Button
+            variant="tertiary-neutral"
+            title={!isMenuOpen ? "Open menu" : "close menu"}
+            aria-expanded={isMenuOpen}
+            icon={
+              !isMenuOpen ? (
+                <MenuHamburgerIcon title="menu" fontSize="1.5rem" />
               ) : (
-                <XMarkIcon
-                  className={"close-menu-icon"}
-                  title="close menu"
-                  fontSize="1.5rem"
-                />
-              )}
-            </button>
-          </HStack>
-        </div>
+                <XMarkIcon title="close menu" fontSize="1.5rem" />
+              )
+            }
+            className={"menu-button"}
+            onClick={toggleMenu}
+          />
+        </HStack>
         <Box as="ul" className={`${"nav-bar-ul"} ${isMenuOpen ? "open" : ""}`}>
-          <HStack gap={"5"} justify={"space-between"} className={"menu-stack"}>
+          <HStack
+            gap={"5"}
+            justify={"space-between"}
+            className={"menu-stack"}
+            align={"center"}
+          >
             <HStack
               className={"nav-link-list"}
               gap={{ xs: "2", sm: "3", md: "4", lg: "5" }}
@@ -107,23 +109,24 @@ export function Navigation() {
             </HStack>
             <HStack className={"right-menu"} gap="1">
               <ListItem>
-                <button
+                <Button
                   data-cy="darkModeToggle"
-                  aria-label="Toggle dark mode"
+                  variant="tertiary-neutral"
+                  title="Toggle dark mode"
                   onClick={toggleDarkMode}
-                >
-                  <SunIcon fontSize={"1.5rem"} />
-                </button>
+                  icon={<SunIcon aria-hidden fontSize={"1.5rem"} />}
+                />
               </ListItem>
               <ListItem>
-                <button
+                <Button
                   data-cy="profileButton"
+                  variant="tertiary-neutral"
+                  title="View Profile" // for accessibility
                   onClick={() =>
                     alert("Not yet implemented. Come back later. ")
                   }
-                >
-                  <PersonCircleIcon fontSize={"1.5rem"} />
-                </button>
+                  icon={<PersonCircleIcon aria-hidden fontSize={"1.5rem"} />}
+                />
               </ListItem>
             </HStack>
           </HStack>

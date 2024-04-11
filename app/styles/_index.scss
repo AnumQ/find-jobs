@@ -9,13 +9,15 @@
 }
 
 [data-theme="dark"] {
-  --a-bg-subtle: var(--a-surface-inverted);
+  --a-bg-default: var(--a-surface-inverted);
+  --a-surface-subtle: var(--a-surface-inverted);
   --a-surface-default: var(--a-surface-inverted);
   --a-border-subtle: var(--a-border-on-inverted-subtle);
   --a-text-subtle: var(--a-text-on-invert);
   --a-border-default: var(--a-border-on-inverted);
   --a-border-strong: var(--a-gray-400);
   --a-surface-neutral-moderate: var(--a-gray-800);
+
   // Popover
   --ac-help-text-popover-bg: var(--a-surface-inverted-active); // popover
   --a-border-info: var(--a-border-on-inverted-subtle);
@@ -63,6 +65,10 @@
   @media (max-width: $a-breakpoint-lg) {
     @content;
   }
+}
+
+body {
+  background-color: var(--a-bg-default);
 }
 
 .footer {

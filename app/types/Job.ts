@@ -1,4 +1,4 @@
-export type JSearchJob = {
+export type Job = {
   employer_name: string;
   employer_logo: string;
   employer_website: string | null;
@@ -58,7 +58,7 @@ export type JSearchJob = {
   job_naics_name: string;
 };
 
-export type JSearchJobDetail = {
+export type JobDetail = {
   employer_name: string;
   employer_logo: string;
   employer_website: string;
@@ -110,7 +110,7 @@ export type JSearchJobDetail = {
   job_naics_code: string;
   job_naics_name: string;
   estimated_salaries: Salary[];
-  apply_options: APPLY_OPTION[];
+  apply_options: Apply_Option[];
   employer_reviews: {
     publisher: string;
     employer_name: string;
@@ -122,7 +122,7 @@ export type JSearchJobDetail = {
   }[];
 };
 
-type APPLY_OPTION = {
+type Apply_Option = {
   apply_link: string;
   is_direct: boolean;
   publisher: string;
