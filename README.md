@@ -87,6 +87,8 @@ Det finnes 3 nivåer når man bruker designsystemet NAV Aksel. Jeg har brukt all
 - Table.Row
 - Table.HeaderCell
 - Table.DataCell
+- SkeletonView
+- Pagination
 - Button
 - Link
 - Heading
@@ -110,7 +112,11 @@ Hele applikasjonen er designet slik at den kan brukes på mobile flater. Brekkpu
 
 ###### Antagelser
 
-På landingssiden (Jobs) har jeg har antatt at vi kun viser 4 kolonner i tabellen på på flater tilegnet tablett. På flater tilsvarende mobil, vises kun 2 kolonner i tabellen.
+**Tabellen på forsiden:**
+
+- Kun 4 kolonner i tabellen skal vises på flater tilegnet tablett.
+- Kun 2 kolonner i tabellen skal vises på flater tilsvarende mobil.
+- Kun fire sider av tabell data er tilgjengelig. Pagineringstall er satt til 4.
 
 ##### Nattmodus
 

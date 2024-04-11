@@ -1,5 +1,4 @@
 import type { MetaFunction } from "@remix-run/node";
-// import "@styles/faq.css";
 import data from "./../data/job_seeker_faq.json";
 import {
   Accordion,

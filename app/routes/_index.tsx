@@ -6,7 +6,6 @@ import {
   HStack,
   Switch,
   VStack,
-  Skeleton,
   Detail,
   HelpText,
   Heading,
@@ -17,6 +16,7 @@ import { useCallback, useState } from "react";
 import { Job } from "~/types/Job";
 import { useGlobalContext } from "~/contexts/GlobalContext";
 import { getMeta } from "~/utils/utils";
+import { SkeletonView } from "./SkeletonView";
 
 export const meta: MetaFunction = () => getMeta("Home");
 
@@ -29,16 +29,6 @@ export const loader: LoaderFunction = async () => {
     numReq: numReq,
     jobs: data,
   });
-};
-
-const SkeletonView = () => {
-  return (
-    <VStack gap="2" className="w-100">
-      {Array.from({ length: 15 }).map((_, index) => (
-        <Skeleton key={index} variant="rectangle" width="100%" height={30} />
-      ))}
-    </VStack>
-  );
 };
 
 const JobListView = ({ jobs }: { jobs: Job[] }) => {
