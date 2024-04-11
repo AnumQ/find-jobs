@@ -99,9 +99,13 @@ export default function JobDetail() {
               </List>
             </HStack>
             <HStack gap="2" justify={"start"}>
-              <Link href={job.job_apply_link || ""} data-cy="apply-link">
-                <Button as="a">Apply here</Button>
-              </Link>
+              <Button
+                as="a"
+                href={job.job_apply_link || ""}
+                data-cy="apply-link"
+              >
+                Apply here
+              </Button>
             </HStack>
           </VStack>
         </VStack>
