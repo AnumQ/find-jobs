@@ -1,26 +1,11 @@
+@use "@navikt/ds-tokens/dist/tokens" as *;
 @import "@styles/_reset.scss";
+@import "@navikt/ds-tokens/dist/tokens";
 
 [data-theme="light"] {
-  --ac-switch-checked-bg: var(--a-blue-500); // switch background when loading
-  // --a-surface-neutral-hover: var(--a-surface-inverted-hover);
-  // --a-surface-action-selected: var(--a-text-on-invert);
-  // --a-surface-action-selected-hover: var(--a-blue-500);
-  // --a-icon-action-selected: var(--a-blue-500);
-
-  // --a-surface-info-subtle: var(--a-surface-inverted-active); // popover
-  // --a-border-info: var(--a-border-on-inverted-subtle);
-  // --a-surface-action-active: var(--a-icon-on-inverted);
-  // --a-text-default: var(--a-text-on-invert);
-  // --a-surface-action: var(--a-text-on-action);
-
+  --ac-help-text-popover-bg: var(--a-blue-100);
   // Pagination
   --ac-pagination-selected-bg: var(--a-blue-500);
-
-  // Buttons in pagination
-  // --a-text-action-on-action-subtle: var(--a-blue-500);
-  --a-surface-action-subtle-hover: var(--a-surface-neutral-subtle-hover);
-  // Komponentnivå
-  // --ac-expansioncard-bg: var(--a-deepblue-100);
 }
 
 [data-theme="dark"] {
@@ -32,7 +17,7 @@
   --a-border-strong: var(--a-gray-400);
   --a-surface-neutral-moderate: var(--a-gray-800);
   // Popover
-  --a-surface-info-subtle: var(--a-surface-inverted-active); // popover
+  --ac-help-text-popover-bg: var(--a-surface-inverted-active); // popover
   --a-border-info: var(--a-border-on-inverted-subtle);
   --a-surface-action-active: var(--a-surface-inverted-active);
   --a-surface-action-subtle-hover: var(--a-surface-inverted-hover);
@@ -42,28 +27,42 @@
   --ac-pagination-selected-bg: var(--a-gray-800);
 
   // Switch
-  --ac-switch-checked-bg: var(--a-gray-400); // switch background when loading
+  --ac-switch-checked-bg: var(--a-gray-600); // switch background when loading
   --a-surface-neutral-hover: var(--a-surface-inverted-hover);
-  --a-surface-action-selected: var(--a-text-on-invert);
+  --a-surface-action-selected: var(--a-text-on-action); // text next to switch
   --a-surface-action-selected-hover: var(--a-blue-500);
-  --a-icon-action-selected: var(--a-blue-500);
-  --a-surface-action-hover: var(--a-text-on-action);
+  --a-surface-action-hover: var(--a-gray-600);
 
-  --ac-switch-thumb-bg: var(--a-blue-500); // circle in the switch
-  --ac-switch-thumb-icon: red;
-  --ac-switch-thumb-icon-checked: var(--a-green-400);
   --a-text-action: var(--a-text-on-action);
 
   // Button
-  --__ac-button-primary-bg: var(--a-gray-800);
+  --__ac-button-primary-bg: var(--a-blue-800);
   --__ac-button-primary-text: var(--a-text-on-action);
 
   // Accordion:
   --ac-accordion-header-border: var(--a-gray-400);
   --ac-accordion-item-bg-open: var(--a-gray-800);
+}
 
-  // Expansion-card:
-  --__ac-expansioncard-border-color: red;
+/* The breakpoints are the recommended breakpoints from AKSEL
+* More info: https://aksel.nav.no/grunnleggende/styling/design-tokens#bea5c48d42fa
+*/
+@mixin mobile {
+  @media (max-width: $a-breakpoint-sm) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: $a-breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (max-width: $a-breakpoint-lg) {
+    @content;
+  }
 }
 
 .footer {

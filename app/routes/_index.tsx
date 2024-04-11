@@ -7,13 +7,11 @@ import {
   Switch,
   VStack,
   Skeleton,
-  BodyShort,
-  Box,
   Detail,
   HelpText,
 } from "@navikt/ds-react";
 import JobList from "~/components/UI/JobList";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { JSearchJob } from "~/types/Job";
 import { useGlobalContext } from "~/contexts/GlobalContext";
 
@@ -27,7 +25,7 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-const DEFAULT_QUERY = "react";
+const DEFAULT_QUERY = "frontend norway";
 
 export const loader: LoaderFunction = async () => {
   const result = await fetchJobs(DEFAULT_QUERY, 1);
@@ -92,10 +90,13 @@ const JobListView = ({ jobs }: { jobs: JSearchJob[] }) => {
         <HStack align={"center"} gap="2">
           <Switch
             checked={isLiveMode}
-            loading={false}
+            loading={isSwitchLoading}
             onChange={async (e) => {
               if (e.target.checked) {
                 setIsSwitchLoading(true);
+                // setTimeout(() => {
+                //   setIsSwitchLoading(false);
+                // }, 1000);
                 fetchPageResults(pageState, true);
               }
               toggleLiveMode();

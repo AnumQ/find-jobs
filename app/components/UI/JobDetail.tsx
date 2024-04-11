@@ -1,5 +1,4 @@
 import {
-  BodyShort,
   Box,
   Detail,
   HStack,

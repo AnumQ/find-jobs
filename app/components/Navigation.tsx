@@ -118,7 +118,9 @@ export function Navigation() {
               <ListItem>
                 <button
                   data-cy="profileButton"
-                  onClick={() => alert("not implemented")}
+                  onClick={() =>
+                    alert("Not yet implemented. Come back later. ")
+                  }
                 >
                   <PersonCircleIcon fontSize={"1.5rem"} />
                 </button>

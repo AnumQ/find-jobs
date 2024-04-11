@@ -1,0 +1,35 @@
+@import "@styles/_index.scss";
+
+@include tablet {
+  .job-result {
+    thead {
+      // Display only 4 columns for tablet viewers
+      th:nth-last-child(-n + 1) {
+        display: none;
+      }
+    }
+
+    tbody {
+      td:nth-last-child(-n + 1) {
+        display: none;
+      }
+    }
+  }
+}
+
+@include mobile {
+  .job-result {
+    thead {
+      // Display only 2 columns for tablet viewers
+      th:nth-last-child(-n + 3) {
+        display: none;
+      }
+    }
+
+    tbody {
+      td:nth-last-child(-n + 3) {
+        display: none;
+      }
+    }
+  }
+}

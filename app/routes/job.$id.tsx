@@ -1,7 +1,6 @@
 import {
   BodyShort,
   Box,
-  Detail,
   HStack,
   Heading,
   Label,
@@ -33,7 +32,7 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
   if (!res) {
     throw new Response("Not Found", { status: 404 });
   }
-  
+
   return json({ job: res as unknown as JSearchJob });
 };
 
@@ -42,7 +41,7 @@ export default function JSearchJobDetail() {
   // console.log(job);
   return (
     <Page.Block as="main" className="about" width="md">
-      <Box padding={{ xs: "2", sm: "4", md: "6", lg: "5" }}>
+      <Box padding={{ xs: "3", sm: "4", md: "6", lg: "5" }}>
         <VStack gap="8">
           <VStack>
             <Box>
@@ -50,12 +49,6 @@ export default function JSearchJobDetail() {
                 <Heading size="medium" level="1">
                   {job.job_title}
                 </Heading>
-                {/* <img
-                  width="40%"
-                  height="auto"
-                  src={job.employer_logo}
-                  alt="employer"
-                /> */}
               </HStack>
             </Box>
           </VStack>
@@ -66,39 +59,38 @@ export default function JSearchJobDetail() {
             </HStack>
             <HStack gap="2">
               <Label>Employer Website </Label>
-              <Link href={job.employer_website}>{job.employer_website}</Link>
+              <Link href={job.employer_website || ""}>
+                {job.employer_website}
+              </Link>
             </HStack>
             <HStack gap="2">
               <Label>Source: </Label>
               <Link href={job.job_google_link}>Google</Link>
             </HStack>
 
-            {/* <HStack>
-              <img
-                width="40%"
-                height="auto"
-                src={job.employer_logo}
-                alt="employer"
-              />
-            </HStack> */}
             <HStack gap="2">
               <Label>Description: </Label>
               <BodyLong>
                 {truncateText(job.job_description)}{" "}
-                <Link href="#" inlineText variant="neutral">
+                <Link
+                  onClick={() => alert("Not implemented yet. Come back later")}
+                  href="#"
+                  inlineText
+                  variant="neutral"
+                >
                   read more
                 </Link>
               </BodyLong>
             </HStack>
             <HStack gap="2">
               <List as="ul" title="Qualifications">
-                {job.job_highlights?.Qualifications.map((q, index) => {
-                  return <List.Item key={index}>{q}</List.Item>;
-                })}
+                {job.job_highlights?.Qualifications?.map((q, index) => (
+                  <List.Item key={index}>{q}</List.Item>
+                ))}
               </List>
             </HStack>
             <HStack gap="2" justify={"start"}>
-              <Link href={job.job_apply_link} legacyBehavior>
+              <Link href={job.job_apply_link || ""}>
                 <Button as="a">Apply here</Button>
               </Link>
             </HStack>

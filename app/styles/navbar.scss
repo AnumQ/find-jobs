@@ -1,27 +1,4 @@
-@use "@navikt/ds-tokens/dist/tokens" as *;
 @import "@styles/_index.scss";
-@import "@navikt/ds-tokens/dist/tokens";
-
-/* The breakpoints are the recommended breakpoints from AKSEL
-* More info: https://aksel.nav.no/grunnleggende/styling/design-tokens#bea5c48d42fa
-*/
-@mixin mobile {
-  @media (max-width: $a-breakpoint-sm) {
-    @content;
-  }
-}
-
-@mixin tablet {
-  @media (max-width: $a-breakpoint-md) {
-    @content;
-  }
-}
-
-@mixin desktop {
-  @media (max-width: $a-breakpoint-lg) {
-    @content;
-  }
-}
 
 nav.navbar {
   background-color: var(--a-bg-subtle);
