@@ -79,6 +79,8 @@ Det finnes tre nivåer når man bruker designsystemet NAV Aksel. Jeg har brukt a
 I dokumentasjonen til designsystemt er det forklart egnet og uegnet bruk av kompononent. Dette er tatt hensyn til i applikasjonen. Accordion er et komponent som er egnet til en liste med ofte stilte spørsmål. Det er derfor Accordion er brukt til å fremvise data på `/faq` siden.
 En annen komponent jeg har implementert er ExpansionCard. Denne kan ses på `/tips` siden.
 
+Ved bruk av standard komponenter som Page, Box, Heading, BodyShort fra designsystemet er det sørget for at stilen til applikasjonen er standardisert og følger kravene til universell utforming og tilgjengelighet.
+
 #### Liste over komponenter fra NAV Aksel som er brukt i applikasjonen:
 
 - Page
@@ -110,6 +112,12 @@ En annen komponent jeg har implementert er ExpansionCard. Denne kan ses på `/ti
 ### Brukervennlighet og universell utforming
 
 Applikasjonen er laget med fokus på brukervennlighet og universell utforming.
+
+#### Tilgjenglighet
+
+Ved bruk av NAV aksel designsystem sørges det at applikasjonen er tilgjengelig for alle automatisk, siden NAVs digitale verktøykasse skal være tilgjengelig for alle.
+
+Dog i noen tilfeller, trengs det tilpasninger. Der har jeg implementert etter retningslinjene fra komponentenens dokumentasjon. Se `advice.tsx` hvor ikoner som bare er til pynt har satt `aria-hidden="true"`.
 
 #### Universell utforming
 
