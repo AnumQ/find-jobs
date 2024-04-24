@@ -2,7 +2,7 @@ import { ReactNode, createContext, useContext, useMemo, useState } from "react";
 
 const defaultValue = {
   isLiveMode: false,
-  isDarkMode: false,
+  isDarkMode: true,
   toggleLiveMode: () => {},
   toggleDarkMode: () => {},
 };
