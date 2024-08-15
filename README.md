@@ -1,5 +1,8 @@
 # Frontend utvikler oppgave
 
+## Hosted application link
+[Find JOBS Remix App - Hosted on Vercel](https://find-jobs-kappa.vercel.app/)
+
 ## Installasjon
 
 ```shellscript
