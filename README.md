@@ -1,17 +1,17 @@
-# Frontend utvikler oppgave
+# Frontend Developer Task
 
-## Hosted application link
-[Find JOBS Remix App - Hosted on Vercel](https://find-jobs-kappa.vercel.app/)
+## Application Link
+[Remix App - Hosted on Vercel](https://find-jobs-kappa.vercel.app/)
 
-## Installasjon
+## Installation
 
 ```shellscript
 npm i
 ```
 
-## Utvikling lokalt
+## Local Development
 
-Kjør utviklingsserver ved å kjøre kommando:
+Run the development server by executing the command:
 
 ```shellscript
 npm run dev
@@ -19,72 +19,71 @@ npm run dev
 
 ## Tests
 
-### Instruksjoner for å kjøre tester
+### Instructions for Running Tests
 
-Det er laget minst to tester, etter kravet i oppgaven. Den ene testen tester ut alle lenkene i navigasjonsmenyen. De andre testene tester ut funksjonaliteten i listevisning og detaljevisning.
+At least two tests have been created, as required by the task. One test checks all the links in the navigation menu. The other tests check the functionality of the list view and detail view.
 
-1. Åpne testpakken ved å kjøre
+1. Open the test suite by running:
 
 ```sh
 npx cypress open
 ```
 
-2. Klikk på `E2E Testing`
+2. Click on `E2E Testing`.
 
-3. Velg en nettleser og klikk `Start E2E Testing`. Et nytt nettleservindu åpnes.
+3. Select a browser and click `Start E2E Testing`. A new browser window will open.
 
-4. Velg `Specs` fra sidepanel. En liste over tester vises i hovedinnholdet.
+4. Choose `Specs` from the sidebar. A list of tests will be displayed in the main content area.
 
-5. Velg en test, for eksempel `navigation.cy.ts`. Testen kjøres automatisk.
+5. Select a test, for example, `navigation.cy.ts`. The test will run automatically.
 
-## Funksjonalitet
+## Functionality
 
-1. Listevisning
-   Applikasjonen viser en liste med jobbutlysninger.
+1. **List View**  
+   The application displays a list of job postings.
 
-2. Detaljevisning
-   Klikk på et element i listen, fører brukeren til en detaljert visning av det valgte elementet.
+2. **Detail View**  
+   Clicking on an item in the list takes the user to a detailed view of the selected item.
 
-3. Navigasjon
-   Brukeren kan navigere til forskjellige sider ved å klikke på lenker i navigasjonen.
+3. **Navigation**  
+   The user can navigate to different pages by clicking on links in the navigation menu.
 
-4. Integrasjon med API
-   Applikasjonen er integrert med et eksternt API. Dette API-et har en maksimal grense for antall tillatte forespørsler på ubetalt abonnement. Av den grunn er standard konfigurert til å bruke test data for å ikke overskride denne grensen.
+4. **API Integration**  
+   The application is integrated with an external API. This API has a maximum limit on the number of allowed requests for unpaid subscriptions. Therefore, it is configured by default to use test data to avoid exceeding this limit.
 
-For å hente data fra API-et, aktiver Use live data-bryteren på forsiden. Applikasjonen viser hvor mange tillatte forespørsler som gjenstår. Hvis du går tom for forespørsler, vennligst kontakt Anum.
+   To fetch data from the API, enable the "Use live data" toggle on the front page. The application will display the remaining number of allowed requests. If you run out of requests, please contact Anum.
 
-5. Natt modus
-   Brukeren kan veksle mellom dag- og nattmodus ved å klikke på ikonet i navigasjonsmeny-en.
+5. **Night Mode**  
+   The user can toggle between day and night mode by clicking on the icon in the navigation menu.
 
-6. Støtte for mobile flater
-   Applikasjonen støtter alle flater. Mer informasjon om dette finner du lenger ned.
+6. **Mobile Support**  
+   The application supports all platforms. More information about this is provided below.
 
-## Dokumentasjon på valg av API
+## Documentation on API Selection
 
-Jobbutlysninger dukker opp på ulike plattformer og blir utfylt løpende. Det er derfor viktig å hente data fra API som har denne oppdateringen uten at vi trenger å oppdatere frontend applikasjonen på ny hver gang dataen endrer seg.
+Job postings appear on various platforms and are continuously updated. Therefore, it is crucial to retrieve data from an API that is updated without requiring us to update the frontend application every time the data changes.
 
-Til denne oppgaven har jeg valgt å bruke [JSearch API ](https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch) fra Rapid API.
+For this task, I chose to use the [JSearch API](https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch) from Rapid API.
 
-JSearch av OpenWeb Ninja tilbyr raske og pålitelige jobbsøk ved å samle inn den nyeste jobbinformasjonen og lønnsdataene fra Google for Jobs i sanntid. Den dekker et bredt spekter av store og mindre jobbsider som LinkedIn, Indeed og Glassdoor. Med over 30 datapunkter per jobb og avanserte søke-, spørre- og filtreringsmuligheter, står JSearch frem som det mest omfattende og vedlikeholdte jobb-APIet tilgjengelig, designet for å gi brukere tilgang til en rikholdig samling av jobbmuligheter.
+JSearch by OpenWeb Ninja offers fast and reliable job searches by collecting the latest job information and salary data from Google for Jobs in real-time. It covers a wide range of major and minor job sites such as LinkedIn, Indeed, and Glassdoor. With over 30 data points per job and advanced search, query, and filtering capabilities, JSearch stands out as the most comprehensive and well-maintained job API available, designed to provide users with access to a rich collection of job opportunities.
 
-Bruk av API gir tilgang til oppdatert informasjon, økt fleksibilitet, og forbedret skalerbarhet. Det er mer kostnadseffektivt og reduserer utviklings- og driftskostnader, samt akselererer utviklingsprosessen ved å fjerne behovet for å samle, strukturere, og vedlikeholde egen data på front end. Ny data som oppdateres i en database, hentes umiddelbart på frontend ved bruk av API.
+Using the API provides access to up-to-date information, increased flexibility, and improved scalability. It is more cost-effective and reduces development and operational costs, as well as accelerates the development process by eliminating the need to collect, structure, and maintain our own data on the frontend. New data updated in a database is immediately retrieved on the frontend using the API.
 
-### Design valg - NAV Aksel Design system
+### Design Choices - NAV Aksel Design System
 
-Som ønsket i oppgaven, har jeg brukt designsystemet NAV Aksel i applikasjonen. Alle farger, ikoner og komponenter i applikasjonen er fra NAV Aksel biblioteket.
+As requested in the task, I have used the NAV Aksel design system in the application. All colors, icons, and components in the application are from the NAV Aksel library.
 
-Det finnes tre nivåer når man bruker designsystemet NAV Aksel. Jeg har brukt alle tre.
+There are three levels when using the NAV Aksel design system. I have used all three.
 
-1. Nivå 1 er design tokens. De er brukt i alle scss filer. Se `_index.scss` for eksempel.
-2. Nivå 2 er komponenter. Disse er brukt i flere komponent filer. Se `JobList.tsx` for eksempel.
-3. Nivå 3 er mal. Jeg har brukt en mal som heter [404 Mal](https://aksel.nav.no/monster-maler/maler/404-side) fra designsystemet. Denne er brukt i `ErrorPage.tsx` og vises når brukeren prøver å gå til en lenke som er ødelagt/ikke finnes.
+1. **Level 1** is design tokens. They are used in all SCSS files. See `_index.scss` for example.
+2. **Level 2** is components. These are used in several component files. See `JobList.tsx` for example.
+3. **Level 3** is a template. I have used a template called [404 Template](https://aksel.nav.no/monster-maler/maler/404-side) from the design system. This is used in `ErrorPage.tsx` and is displayed when the user tries to access a broken or non-existent link.
 
-I dokumentasjonen til designsystemt er det forklart egnet og uegnet bruk av kompononent. Dette er tatt hensyn til i applikasjonen. Accordion er et komponent som er egnet til en liste med ofte stilte spørsmål. Det er derfor Accordion er brukt til å fremvise data på `/faq` siden.
-En annen komponent jeg har implementert er ExpansionCard. Denne kan ses på `/tips` siden.
+The design system's documentation explains the appropriate and inappropriate use of components. This has been taken into account in the application. Accordion is a component that is suitable for a list of frequently asked questions, which is why Accordion is used to display data on the `/faq` page. Another component I have implemented is ExpansionCard, which can be seen on the `/tips` page.
 
-Ved bruk av standard komponenter som Page, Box, Heading, BodyShort fra designsystemet, er det sørget for at stilen til applikasjonen er standardisert og følger kravene til universell utforming og tilgjengelighet.
+By using standard components such as Page, Box, Heading, and BodyShort from the design system, the application's style is standardized and meets the requirements for universal design and accessibility.
 
-#### Liste over komponenter fra NAV Aksel som er brukt i applikasjonen:
+#### List of NAV Aksel Components Used in the Application:
 
 - Page
 - Box
@@ -112,29 +111,28 @@ Ved bruk av standard komponenter som Page, Box, Heading, BodyShort fra designsys
 - ExpansionCard.Title
 - ExpansionCard.Content
 
-### Brukervennlighet og universell utforming
+### Usability and Universal Design
 
-Applikasjonen er laget med fokus på brukervennlighet og universell utforming.
+The application is built with a focus on usability and universal design.
 
-#### Tilgjenglighet
+#### Accessibility
 
-Ved bruk av NAV aksel designsystem sørges det for applikasjonens tilgjengeliget for alle automatisk, ettersom NAVs digitale verktøykasse skal være tilgjengelig for alle.
+By using the NAV Aksel design system, the application's accessibility is automatically ensured, as NAV's digital toolkit is intended to be accessible to everyone.
 
-Dog i noen tilfeller, er det behov for tilpasninger. Der har jeg implementert etter retningslinjene fra komponentenes dokumentasjon. Se `advice.tsx` hvor ikoner som bare er til pynt, har satt `aria-hidden="true"`. Samme gjelder ikoner som er wrappet i `Button` elementer i navigasjonen. Se `Navigation.tsx`.
+However, in some cases, adjustments are needed. I have implemented these according to the guidelines in the component documentation. See `advice.tsx` where icons that are purely decorative have `aria-hidden="true"` set. The same applies to icons wrapped in `Button` elements in the navigation. See `Navigation.tsx`.
 
-#### Universell utforming
+#### Universal Design
 
-Hele applikasjonen er designet slik at den kan brukes på mobile flater. Brekkpunkter er hentet fra NAV Aksel designsystem.
+The entire application is designed to be usable on mobile platforms. Breakpoints are taken from the NAV Aksel design system.
 
-##### Nattmodus
+##### Night Mode
 
-Det er støtte for å veksle mellom dag- og nattmodus i applikasjonen.
-Design tokens er overstyrt på semantisk og komponentnivå for å oppnå dette. Hele applikasjonen støtter nattmodus.
+Support for toggling between day and night mode is available in the application. Design tokens are overridden at the semantic and component levels to achieve this. The entire application supports night mode.
 
-#### Antagelser
+#### Assumptions
 
-Det er foretatt noen antagelser, og disse gjelder tabellen (listevisningen) på forsiden:
+Some assumptions have been made, particularly concerning the table (list view) on the front page:
 
-- Kun 4 kolonner i tabellen skal vises på flater tilegnet tablett.
-- Kun 2 kolonner i tabellen skal vises på flater tilsvarende mobil.
-- Kun fire sider av tabell data er tilgjengelig. Pagineringstall er satt til 4.
+- Only 4 columns in the table should be displayed on tablet-sized screens.
+- Only 2 columns in the table should be displayed on mobile-sized screens.
+- Only four pages of table data are available. The pagination number is set to 4.
