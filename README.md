@@ -1,4 +1,4 @@
-# Frontend Developer Task
+# Job listings (JSEARCH Api from RapidApi)
 
 ## Application Link
 [Remix App - Hosted on Vercel](https://find-jobs-kappa.vercel.app/)
